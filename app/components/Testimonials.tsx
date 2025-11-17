@@ -33,6 +33,13 @@ const testimonials = [
     location: 'Surat',
     image: '/projects/hospitals/hospital8.png',
   },
+  {
+    quote:
+      'Dwarka Enterprise provided us with a reliable, efficient HVAC solution that greatly improved comfort across Vidhyadeep University.',
+    name: 'Vidhyadeep university',
+    location: 'Kim',
+    image: '/projects/education/education1.png',
+  },
 ];
 
 export default function TestimonialsSection() {

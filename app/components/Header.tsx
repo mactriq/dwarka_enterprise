@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#040503] border-b border-white">
-      <div className="mx-auto flex items-center justify-between px-4 py-6 sm:px-20">
+      <div className="mx-auto flex items-center justify-between px-4 py-4 sm:px-20">
         {/* Logo (Desktop) */}
         <Link href="/" className="hidden md:flex items-center">
           <Image
