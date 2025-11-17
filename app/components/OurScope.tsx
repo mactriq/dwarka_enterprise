@@ -50,7 +50,7 @@ const OurScope = () => {
   };
 
   return (
-    <section className="py-16 px-6 lg:px-20 bg-white">
+    <section className="py-20 px-6 lg:px-20 bg-white">
       {/* Section Heading */}
       <h2 className="text-4xl lg:text-5xl font-bold text-[#0C1622] mb-10">
         Our Scope

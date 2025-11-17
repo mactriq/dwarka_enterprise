@@ -48,7 +48,7 @@ export default function SiteVideos() {
 
   return (
     <section className="bg-[#F7F6F2] py-20 px-6 lg:px-20">
-      <h2 className="lg:text-6xl text-3xl font-semibold text-gray-800 mb-12">
+      <h2 className="text-4xl lg:text-5xl font-semibold text-gray-800 mb-12">
         Site Videos
       </h2>
 

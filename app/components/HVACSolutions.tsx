@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const HVACSolutions = () => {
@@ -13,7 +14,7 @@ const HVACSolutions = () => {
   ];
 
   return (
-    <section className="bg-white py-16 px-6 lg:px-20">
+    <section className="bg-white py-20 px-6 lg:px-20">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
         {/* Left Content */}
         <div className="lg:w-1/2 text-center lg:text-left">
@@ -37,9 +38,9 @@ const HVACSolutions = () => {
             height={400}
             className="rounded-xl object-cover"
           />
-          <button className="absolute bottom-4 right-4 bg-white text-[#0C1622] font-semibold px-4 py-2 rounded-lg shadow-md flex items-center gap-2 hover:bg-gray-100 transition">
+          <Link href="/about" className="absolute bottom-4 right-4 bg-white text-[#16222E] hover:bg-[#16222E] hover:text-white font-semibold px-4 py-2 rounded-lg shadow-md flex items-center gap-2 transition">
             Know More →
-          </button>
+          </Link>
         </div>
       </div>
 

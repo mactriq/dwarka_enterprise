@@ -32,7 +32,7 @@ const whyData = [
   },
   {
     icon: "/about/icons/safety.png",
-    title: "Innovation",
+    title: "Safety",
     desc: "Our rigorous safety protocols and adaptability guarantee satisfaction.",
   },
 ];
@@ -43,73 +43,89 @@ const WhyDwarka = () => {
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollAmount = direction === "left" ? scrollLeft - clientWidth : scrollLeft + clientWidth;
-      scrollRef.current.scrollTo({ left: scrollAmount, behavior: "smooth" });
+      const scrollAmount =
+        direction === "left"
+          ? scrollLeft - clientWidth
+          : scrollLeft + clientWidth;
+
+      scrollRef.current.scrollTo({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
     <section className="px-6 py-16">
-    <div className="bg-[#0C1622] text-white rounded-3xl px-6 md:px-10 lg:px-16 py-16 relative overflow-hidden">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-10">
-        <h2 className="text-4xl lg:text-5xl font-bold">Why Dwarka</h2>
-        <Link
-            href="/product"
+      <div className="bg-[#0C1622] text-white rounded-3xl px-6 md:px-10 lg:px-14 py-16 relative overflow-hidden">
+
+        {/* Header */}
+        <div className="flex justify-between items-center mb-10">
+          <h2 className="text-4xl lg:text-5xl font-bold">Why Dwarka</h2>
+          <Link
+            href="/about"
             className="border border-white text-white hover:text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-white transition whitespace-nowrap"
           >
-          Know More →
-        </Link>
-      </div>
-
-      {/* Scrollable Cards */}
-      <div className="relative">
-        {/* Left Arrow */}
-        <button
-          onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#0C1622] p-2 rounded-full shadow-md"
-        >
-          <FiChevronLeft className="text-2xl text-white" />
-        </button>
-
-        {/* Cards Container */}
-        <div
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar pb-4"
-        >
-          {whyData.map((item, index) => (
-            <div
-              key={index}
-              className="max-w-[280px] bg-white text-[#0C1622] rounded-2xl p-6 flex-shrink-0 shadow-md"
-            >
-              <div className="flex flex-col gap-3">
-                <Image
-                  src={item.icon}
-                  alt={item.title}
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                />
-                <h3 className="font-semibold text-lg border-b border-gray-200 pb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-[#0C1622]/80 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          ))}
+            Know More →
+          </Link>
         </div>
 
-        {/* Right Arrow */}
+        {/* Scroll Buttons (Mobile Only) */}
+        <button
+          onClick={() => scroll("left")}
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full 
+          md:hidden"
+        >
+          <FiChevronLeft size={28} />
+        </button>
+
         <button
           onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#0C1622] p-2 rounded-full shadow-md"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full 
+          md:hidden"
         >
-          <FiChevronRight className="text-2xl text-white" />
+          <FiChevronRight size={28} />
         </button>
+
+        {/* Cards Section */}
+        <div className="relative">
+          <div
+            ref={scrollRef}
+            className="
+              grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 
+              gap-4 
+              overflow-x-auto md:overflow-visible 
+              no-scrollbar scroll-smooth
+            "
+          >
+            {whyData.map((item, index) => (
+              <div
+                key={index}
+                className="min-w-[220px] bg-white text-[#0C1622] rounded-2xl p-5 shadow-md"
+              >
+                <div className="flex flex-col gap-3">
+                  <Image
+                    src={item.icon}
+                    alt={item.title}
+                    width={40}
+                    height={40}
+                    className="object-contain"
+                  />
+
+                  <h3 className="font-semibold text-lg border-b border-gray-200 pb-2">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm text-[#0C1622]/80 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
-    </div>
     </section>
   );
 };

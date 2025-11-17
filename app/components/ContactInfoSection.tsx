@@ -19,7 +19,7 @@ export default function ContactInfoSection() {
 
         {/* Contact Info */}
         <div className="w-full lg:w-1/3">
-          <h2 className="lg:text-5xl text-3xl font-semibold text-gray-900 mb-8">Get in touch</h2>
+          <h2 className="text-4xl lg:text-5xl font-semibold text-gray-900 mb-8">Get in touch</h2>
 
           <div className="space-y-6">
             {/* Address */}

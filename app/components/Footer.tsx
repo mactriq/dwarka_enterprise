@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-// import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -60,32 +62,42 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h3 className="font-semibold mb-4">Contacts</h3>
-            <ul className="space-y-1 text-sm">
-              <li>
-                <Link href="#" className="hover:text-gray-300">
-                  +91 9376639399, +91 6351292442
-                </Link>
-              </li>
-              <li>
-                <Link href="dwarkaenterprise16@gmail.com" className="hover:text-gray-300">
-                  dwarkaenterprise16@gmail.com
-                </Link>
-              </li>
-            </ul>
-          </div>
+              <ul className="space-y-2 text-sm">
 
-          {/* Social Icons */}
-          {/* <div className="flex md:flex-col gap-4 items-center md:items-start">
-            <Link href="https://facebook.com" target="_blank">
-              <SiFacebook className="w-5 h-5 hover:text-gray-300" />
-            </Link>
-            <Link href="https://instagram.com" target="_blank">
-              <SiInstagram className="w-5 h-5 hover:text-gray-300" />
-            </Link>
-            <Link href="https://youtube.com" target="_blank">
-              <SiYoutube className="w-5 h-5 hover:text-gray-300" />
-            </Link>
-          </div> */}
+                {/* Phone numbers */}
+                <li className="flex items-center gap-2">
+                  <FaPhoneAlt className="text-white/80" />
+                  <Link href="tel:+919376639399" className="hover:text-gray-300">
+                    +91 9376639399, +91 6351292442
+                  </Link>
+                </li>
+
+                {/* Email */}
+                <li className="flex items-center gap-2">
+                  <MdEmail className="text-white/80" />
+                  <Link
+                    href="mailto:dwarkaenterprise16@gmail.com"
+                    className="hover:text-gray-300"
+                  >
+                    dwarkaenterprise16@gmail.com
+                  </Link>
+                </li>
+
+                {/* Social Icons */}
+                <div className="flex md:flex-row gap-4 items-center md:items-start">
+                  <Link href="https://facebook.com" target="_blank">
+                    <SiFacebook className="w-5 h-5 hover:text-gray-300" />
+                  </Link>
+                  <Link href="https://instagram.com" target="_blank">
+                    <SiInstagram className="w-5 h-5 hover:text-gray-300" />
+                  </Link>
+                  <Link href="https://youtube.com" target="_blank">
+                    <SiYoutube className="w-5 h-5 hover:text-gray-300" />
+                  </Link>
+                </div>
+
+              </ul>
+          </div>
         </div>
 
       </div>

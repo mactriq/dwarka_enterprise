@@ -24,7 +24,7 @@ const FoundersNote: FC = () => {
 
         {/* Right: Content (2/3 width on desktop) */}
         <div className="w-full md:w-2/3">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Founder’s Note
           </h2>
 

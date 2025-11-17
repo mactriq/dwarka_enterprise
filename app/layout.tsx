@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FaWhatsapp } from "react-icons/fa";
+import { HiOutlineArrowDown } from "react-icons/hi";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,23 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        {/* Floating Company Brochure Button */}
+        <a
+          href="/about/Dwarka Enterprise Brochure.pdf"
+          download
+          className="fixed bottom-6 left-6 md:bottom-10 md:left-10 z-50 
+                    flex items-center gap-3 bg-white text-[#16222E] 
+                    px-4 py-2 rounded-full shadow-lg 
+                    hover:shadow-xl transition-all"
+        >
+          <span className="font-medium">Company Brochure</span>
+
+          {/* Circular Download Icon */}
+          <div className="w-9 h-9 flex items-center justify-center rounded-full bg-[#16222E]">
+            <HiOutlineArrowDown className="text-white w-5 h-5" />
+          </div>
+        </a>
+
         {/* Floating WhatsApp Button */}
         <a
           href="https://wa.me/919376639399"

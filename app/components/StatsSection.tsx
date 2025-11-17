@@ -5,7 +5,7 @@ import { FC } from "react";
 
 const StatsSection: FC = () => {
   return (
-    <section className="bg-white py-20 px-6 lg:px-20">
+    <section className="bg-white py-10 px-6 lg:px-20">
       <div className="grid md:grid-cols-2 gap-12 items-center">
 
         {/* LEFT — Stats Grid */}
@@ -20,10 +20,10 @@ const StatsSection: FC = () => {
               key={index}
               className="bg-[#F7F6F2] rounded-2xl p-12 text-center transition"
             >
-              <h3 className="text-3xl md:text-5xl font-semibold text-gray-900 mb-4 hover:scale-110">
+              <h3 className="text-4xl lg:text-5xl font-semibold text-gray-900 mb-4 hover:scale-110">
                 {stat.value}
               </h3>
-              <p className="text-gray-700 text-sm md:text-base">{stat.label}</p>
+              <p className="text-gray-700 text-xl md:text-base">{stat.label}</p>
             </div>
           ))}
         </div>

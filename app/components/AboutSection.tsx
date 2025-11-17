@@ -20,7 +20,7 @@ const AboutSection: FC = () => {
         {/* CONTENT */}
         <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="flex flex-col md:max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">Our Vision</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-2">Our Vision</h2>
             <p className="text-lg leading-relaxed">
               To be India’s top HVAC partner, driving innovation, sustainability,
               and comfort for a brighter, greener future.
@@ -49,7 +49,7 @@ const AboutSection: FC = () => {
         {/* CONTENT */}
         <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="flex flex-col md:max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">Our Mission</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-2">Our Mission</h2>
             <p className="text-lg leading-relaxed">
               Delivering excellence in HVAC solutions, we create healthier,
               efficient indoor spaces, exceeding client expectations across India.
@@ -78,7 +78,7 @@ const AboutSection: FC = () => {
         {/* CONTENT */}
         <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="flex flex-col md:max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">Core Values</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-2">Core Values</h2>
             <p className="text-lg leading-relaxed">
               Excellence, Innovation, Customer Focus, Integrity, Sustainability,
               Safety, Teamwork, Adaptability, Community Engagement.

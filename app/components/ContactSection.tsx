@@ -25,8 +25,8 @@ export default function ContactSection() {
         </div>
 
         {/* Right Form */}
-        <div className="bg-[url('/contact/contact-bg.png')] h-full bg-cover bg-center rounded-2xl p-24 flex items-center justify-center">
-            <div className="bg-white rounded-xl p-6 w-full">
+        <div className="bg-[url('/contact/contact-bg.png')] h-full bg-cover bg-center rounded-2xl lg:p-24 p-4 flex items-center justify-center">
+            <div className="bg-white rounded-xl lg:p-6 p-4 w-full">
                 {/* Tabs */}
                 <div className="flex gap-3 mb-10">
                 <button

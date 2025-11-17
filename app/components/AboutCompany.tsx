@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export default function AboutCompany() {
   return (
-    <section className="bg-white py-16 px-6 md:px-12 lg:px-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="bg-white py-20 px-6 md:px-12 lg:px-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
         {/* LEFT SIDE: Company Info */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Company Profile
           </h2>
 
@@ -104,9 +104,7 @@ export default function AboutCompany() {
             </div>
           </div>
 
-
         </div>
-
 
       </div>
     </section>
