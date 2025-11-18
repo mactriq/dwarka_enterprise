@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function AboutCompany() {
   return (
-    <section className="bg-white py-20 px-6 md:px-12 lg:px-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
+    <section className="bg-white lg:py-20 py-8 px-6 md:px-12 lg:px-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-8">
         {/* LEFT SIDE: Company Info */}
         <div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -49,7 +49,7 @@ export default function AboutCompany() {
         <div className="relative grid gap-4">
           {/* Top Left Image */}
           <div className="w-full flex gap-4">
-          <div className="w-1/2 w-80 relative h-110 rounded-xl overflow-hidden">
+          <div className="w-1/2 w-80 relative lg:h-110 h-72 rounded-xl overflow-hidden">
             <Image
               src="/about/hvac1.png"
               alt="HVAC Outdoor Units"
@@ -61,7 +61,7 @@ export default function AboutCompany() {
           {/* Top Right Image */}
             <div className="w-1/2 relative flex flex-col gap-9">
               {/* Top Image */}
-              <div className="relative w-full h-64 rounded-xl overflow-hidden">
+              <div className="relative w-full lg:h-64 h-50 rounded-xl overflow-hidden">
                 <Image
                   src="/about/hvac2.png"
                   alt="HVAC Vent System"
@@ -71,7 +71,7 @@ export default function AboutCompany() {
               </div>
 
               {/* Bottom Image */}
-              <div className="relative w-full h-34 rounded-xl overflow-hidden">
+              <div className="relative w-full lg:h-32 h-12 rounded-xl overflow-hidden">
                 <Image
                   src="/about/hvac-solutions.png"
                   alt="HVAC Solutions"

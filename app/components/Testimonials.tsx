@@ -57,7 +57,7 @@ export default function TestimonialsSection() {
     <section className="bg-white py-16 px-6 lg:px-20">
       <div className="lg:mb-10">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between lg:mb-10 mb-6">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">Testimonials</h2>
           <p className="text-black mt-2 sm:mt-0 text-base">
             What Our Customer Say About Us

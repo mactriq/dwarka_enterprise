@@ -34,13 +34,13 @@ const OurProducts = () => {
   };
 
   return (
-    <section className="bg-[#F7F6F2] py-20 px-6 lg:px-20 relative">
+    <section className="bg-[#F7F6F2] lg:py-20 py-16 px-6 lg:px-20 relative">
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-center justify-between mb-10 gap-4">
+      <div className="flex flex-col md:flex-row lg:items-center justify-between lg:mb-10 mb-6 gap-4">
         <h2 className="text-4xl lg:text-5xl font-bold text-[#0C1622]">
           Our products
         </h2>
-        <p className="text-center md:text-right max-w-xl">
+        <p className="text-start md:text-right max-w-xl">
           Discover top-quality HVAC products for ultimate comfort and efficiency.
         </p>
       </div>
@@ -48,7 +48,7 @@ const OurProducts = () => {
       {/* Left Arrow */}
       <button
         onClick={prev}
-        className="absolute left-8 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full hover:bg-gray-200 bg-white shadow-md text-black hover:scale-110 transition"
+        className="absolute left-6 lg:bottom-[40%] bottom-[35%] -translate-y-1/2 z-20 p-2 rounded-full hover:bg-gray-200 bg-white shadow-md text-black hover:scale-110 transition"
       >
         <ChevronLeft size={28} strokeWidth={1.5} />
       </button>
@@ -61,10 +61,10 @@ const OurProducts = () => {
         {products.map((product, index) => (
           <div
             key={index}
-            className="relative min-w-[250px] sm:min-w-[300px] lg:min-w-[300px] bg-white rounded-3xl overflow-hidden transition-all duration-300 snap-start"
+            className="relative min-w-[220px] lg:min-w-[300px] bg-white rounded-3xl overflow-hidden transition-all duration-300 snap-start"
           >
             {/* Product Image */}
-            <div className="relative h-[380px] w-[300px]">
+            <div className="relative lg:h-[380px] h-[350px] w-[300px]">
               <Image
                 src={product.src}
                 alt={product.name}
@@ -90,7 +90,7 @@ const OurProducts = () => {
       {/* Right Arrow */}
       <button
         onClick={next}
-        className="absolute right-8 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full hover:bg-gray-200 bg-white shadow-md text-black hover:scale-110 transition"
+        className="absolute right-6 lg:bottom-[40%] bottom-[35%] -translate-y-1/2 z-20 p-2 rounded-full hover:bg-gray-200 bg-white shadow-md text-black hover:scale-110 transition"
       >
         <ChevronRight size={28} strokeWidth={1.5} />
       </button>

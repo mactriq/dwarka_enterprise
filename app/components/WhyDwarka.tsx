@@ -56,7 +56,7 @@ const WhyDwarka = () => {
   };
 
   return (
-    <section className="px-6 py-16">
+    <section className="px-6 lg:py-14 py-6">
       <div className="bg-[#0C1622] text-white rounded-3xl px-6 md:px-10 lg:px-14 py-16 relative overflow-hidden">
 
         {/* Header */}
@@ -69,23 +69,6 @@ const WhyDwarka = () => {
             Know More →
           </Link>
         </div>
-
-        {/* Scroll Buttons (Mobile Only) */}
-        <button
-          onClick={() => scroll("left")}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full 
-          md:hidden"
-        >
-          <FiChevronLeft size={28} />
-        </button>
-
-        <button
-          onClick={() => scroll("right")}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-md p-3 rounded-full 
-          md:hidden"
-        >
-          <FiChevronRight size={28} />
-        </button>
 
         {/* Cards Section */}
         <div className="relative">

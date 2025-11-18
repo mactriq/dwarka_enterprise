@@ -29,7 +29,7 @@ const AboutSection: FC = () => {
 
           <Link
             href="/product"
-            className="border border-white text-white hover:text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-white transition whitespace-nowrap"
+            className="w-auto self-start md:self-auto border border-white text-white hover:text-gray-900 px-4 py-3 rounded-lg font-semibold hover:bg-white transition whitespace-nowrap"
           >
             Explore Our Products →
           </Link>
@@ -58,7 +58,7 @@ const AboutSection: FC = () => {
 
           <Link
             href="/project"
-            className="border border-white text-white hover:text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-white transition whitespace-nowrap"
+            className="w-auto self-start md:self-auto border border-white text-white hover:text-gray-900 px-4 py-3 rounded-lg font-semibold hover:bg-white transition whitespace-nowrap"
           >
             See Our Projects →
           </Link>
@@ -87,7 +87,7 @@ const AboutSection: FC = () => {
 
           <Link
             href="/contact"
-            className="border border-white text-white hover:text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-white transition whitespace-nowrap"
+            className="w-auto self-start md:self-auto border border-white text-white hover:text-gray-900 px-4 py-3 rounded-lg font-semibold hover:bg-white transition whitespace-nowrap"
           >
             Get in Touch →
           </Link>

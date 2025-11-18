@@ -156,9 +156,9 @@ const ProductsSection = () => {
   });
 
   return (
-    <section className="px-6 lg:px-20 py-20">
+    <section className="px-6 lg:px-20 lg:py-20 py-6">
       {/* ---------------- FILTERS ---------------- */}
-      <div className="flex flex-wrap gap-4 items-center mb-10">
+      <div className="flex flex-wrap gap-4 items-center lg:mb-10 mb-6">
         {/* Brand */}
         <select
           className="border px-2 py-2 rounded-lg"
@@ -195,7 +195,7 @@ const ProductsSection = () => {
       </div>
 
       {/* ---------------- PRODUCT GRID ---------------- */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
         {filteredProducts.map((product, index) => (
           <div
@@ -204,7 +204,7 @@ const ProductsSection = () => {
             onClick={() => setActiveProduct(product)}
           >
             {/* Image */}
-            <div className="relative w-full h-[420px]">
+            <div className="relative w-full lg:h-[400px] h-[300px]">
               <Image
                 src={product.image}
                 alt={product.name}
@@ -215,7 +215,7 @@ const ProductsSection = () => {
 
             {/* Bottom Bar OVERLAYED */}
             <div className="absolute bottom-0 left-0 w-full px-4 bottom-4 flex justify-between items-center rounded-t-3xl">
-              <h3 className="text-lg font-medium max-w-[75%] leading-snug text-white">
+              <h3 className="lg:text-lg text-md font-medium max-w-[75%] leading-snug text-white">
                 {product.name}
               </h3>
 
@@ -237,7 +237,7 @@ const ProductsSection = () => {
       {/* ---------------- PRODUCT POPUP ---------------- */}
         {activeProduct && (
         <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 p-4">
-            <div className="bg-white rounded-3xl p-10 w-full max-w-7xl relative border">
+            <div className="bg-white rounded-3xl lg:p-10 p-6 w-full max-w-7xl relative border">
 
             {/* Close Button */}
             <button
@@ -248,7 +248,7 @@ const ProductsSection = () => {
             </button>
 
             {/* 3 GRID LAYOUT */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-12 gap-6 items-start">
 
                 {/* ---------------- LEFT SECTION ---------------- */}
                 <div className="flex flex-col h-full space-y-2">
@@ -275,7 +275,7 @@ const ProductsSection = () => {
                     alt={activeProduct.name}
                     width={600}
                     height={600}
-                    className="w-full lg:h-[65vh] object-contain bg-[#F7F6F2] rounded-2xl p-10"
+                    className="w-full lg:h-[65vh] h-[30vh] object-contain bg-[#F7F6F2] rounded-2xl"
                 />
                 </div>
 
@@ -283,41 +283,35 @@ const ProductsSection = () => {
                 <div className="flex flex-col h-full">
 
                     {/* Features */}
-                    <ul className="list-disc pl-5 space-y-2 text-gray-800">
+                    <ul className="list-disc pl-5 lg:space-y-2 text-gray-800">
                         {activeProduct.features.map((f: string, i: number) => (
                         <li key={i}>{f}</li>
                         ))}
                     </ul>
 
                     {/* Buttons at the bottom */}
-                    <div className="flex flex-col space-y-4 mt-auto pt-6">
-
-  <a
-    href={activeProduct.broucher}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="border hover:bg-white hover:text-[#16222E] bg-[#16222E] text-white px-6 py-3 rounded-full flex items-center justify-between"
-  >
-    View Catalogue <FaArrowRight />
-  </a>
-
-  <Link
-    href="/contact"
-    className="border hover:bg-white hover:text-[#16222E] bg-[#16222E] text-white px-6 py-3 rounded-full flex items-center justify-between"
-  >
-    Get in Touch <FaArrowRight />
-  </Link>
-
-</div>
-
+                    <div className="flex flex-col space-y-2 mt-auto pt-6">
+                      <a
+                        href={activeProduct.broucher}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="border hover:bg-white hover:text-[#16222E] bg-[#16222E] text-white px-6 py-3 rounded-full flex items-center justify-between"
+                      >
+                        View Catalogue <FaArrowRight />
+                      </a>
+                      <Link
+                        href="/contact"
+                        className="border hover:bg-white hover:text-[#16222E] bg-[#16222E] text-white px-6 py-3 rounded-full flex items-center justify-between"
+                      >
+                        Get in Touch <FaArrowRight />
+                      </Link>
+                    </div>
 
                 </div>
-
             </div>
             </div>
         </div>
         )}
-
     </section>
   );
 };

@@ -23,7 +23,7 @@ const sectors: Sector[] = [
 const SectorsWeCover = () => {
   return (
     <section className="bg-[#F7F6F2] py-16 overflow-hidden">
-      <div className="mx-auto text-center">
+      <div className="text-center">
         <h2 className="text-4xl lg:text-5xl font-semibold text-[#0C1622] mb-10">
           Sectors we Cover
         </h2>

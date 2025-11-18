@@ -6,7 +6,7 @@ import { FC } from "react";
 const FoundersNote: FC = () => {
   return (
     <section className="bg-white py-20 px-6 lg:px-20">
-      <div className="flex flex-col md:flex-row gap-12 items-center">
+      <div className="flex flex-col md:flex-row lg:gap-12 gap-8 items-center">
 
         {/* Left: Image (1/3 width on desktop) */}
         <div className="w-full md:w-1/3 flex justify-center md:justify-start">

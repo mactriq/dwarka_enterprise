@@ -52,14 +52,14 @@ const OurScope = () => {
   return (
     <section className="py-20 px-6 lg:px-20 bg-white">
       {/* Section Heading */}
-      <h2 className="text-4xl lg:text-5xl font-bold text-[#0C1622] mb-10">
+      <h2 className="text-4xl lg:text-5xl font-bold text-[#0C1622] lg:mb-10 mb-6">
         Our Scope
       </h2>
 
       {/* Content Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-16 gap-0 items-start">
         {/* Left Image */}
-        <div className="relative w-full h-[600px] rounded-lg overflow-hidden">
+        <div className="relative w-full lg:h-[600px] h-[300px] rounded-lg overflow-hidden">
           <Image
             src="/about/survey.png"
             alt="HVAC Installation"

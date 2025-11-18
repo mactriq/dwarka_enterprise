@@ -56,7 +56,7 @@ const HVACSolutions = () => {
             and reliability.
         </p>
 
-        <div className="border-t border-b border-[#16222E] py-4 flex flex-wrap justify-between items-center w-full">
+        <div className="border-t border-b border-[#16222E] py-4 flex flex-wrap justify-between gap-6 items-center w-full">
           {brands.map((brand, index) => (
             <React.Fragment key={index}>
               <div className="flex-1 flex items-center justify-center min-w-[120px]">
