@@ -2,11 +2,11 @@
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
 import contactData from "../data/contactInfo.json";
 
-const iconMap: Record<string, JSX.Element> = {
-  map: <FaMapMarkerAlt className="text-[#AA2022] text-xl mt-1" />,
-  phone: <FaPhoneAlt className="text-[#AA2022] text-lg mt-1" />,
-  email: <FaEnvelope className="text-[#AA2022] text-lg mt-1" />,
-  clock: <FaClock className="text-[#AA2022] text-lg mt-1" />
+const iconMap: Record<string, () => React.ReactNode> = {
+  map: () => <FaMapMarkerAlt className="text-[#AA2022] text-3xl mt-1" />,
+  phone: () => <FaPhoneAlt className="text-[#AA2022] text-lg mt-1" />,
+  email: () => <FaEnvelope className="text-[#AA2022] text-lg mt-1" />,
+  clock: () => <FaClock className="text-[#AA2022] text-lg mt-1" />,
 };
 
 export default function ContactInfoSection() {
@@ -15,7 +15,7 @@ export default function ContactInfoSection() {
   return (
     <section className="w-full px-6 lg:px-20 py-20">
       <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20">
-        
+
         {/* Map */}
         <div className="w-full lg:w-2/3">
           <iframe
@@ -41,7 +41,7 @@ export default function ContactInfoSection() {
                 key={index}
                 className={`flex items-start gap-4 ${index !== info.length - 1 ? "border-b border-gray-300 pb-4" : ""}`}
               >
-                {iconMap[item.icon]}
+                {iconMap[item.icon]?.()}
                 <div>
                   <h3 className="font-semibold text-gray-900">{item.title}</h3>
                   {Array.isArray(item.details)
