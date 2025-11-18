@@ -75,16 +75,24 @@ const WhyDwarka = () => {
           <div
             ref={scrollRef}
             className="
-              grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 
+              flex md:grid 
+              md:grid-cols-3 lg:grid-cols-6 
               gap-4 
-              overflow-x-auto md:overflow-visible 
-              no-scrollbar scroll-smooth
+              overflow-x-auto md:overflow-visible
+              no-scrollbar scroll-smooth 
+              snap-x snap-mandatory
             "
           >
             {whyData.map((item, index) => (
               <div
                 key={index}
-                className="min-w-[220px] bg-white text-[#0C1622] rounded-2xl p-5 shadow-md"
+                className="
+                  min-w-[240px] sm:min-w-[260px] 
+                  md:min-w-0 
+                  bg-white text-[#0C1622] 
+                  rounded-2xl p-5 shadow-md 
+                  snap-start
+                "
               >
                 <div className="flex flex-col gap-3">
                   <Image

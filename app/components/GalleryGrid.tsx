@@ -50,7 +50,7 @@ export default function GalleryGrid() {
   };
 
   return (
-    <section className="py-20 px-6 lg:px-20 bg-gray-50">
+    <section className="lg:py-20 py-6 px-6 lg:px-20 bg-gray-50">
 
       {/* GRID */}
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -70,14 +70,14 @@ export default function GalleryGrid() {
         ))}
       </div>
 
-      {/* SHOW MORE BUTTON */}
+      {/* LOAD MORE BUTTON */}
       {visibleCount < galleryImages.length && (
-        <div className="flex justify-center mt-20">
+        <div className="flex justify-center lg:mt-20 mt-6">
           <button
             onClick={handleShowMore}
             className="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
           >
-            Show more
+            Load more
           </button>
         </div>
       )}
@@ -89,7 +89,7 @@ export default function GalleryGrid() {
           {/* CLOSE BUTTON */}
           <button
             onClick={() => setPopupIndex(null)}
-            className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
+            className="absolute top-6 lg:right-6 right-2 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
           >
             <X size={32} />
           </button>
@@ -97,7 +97,7 @@ export default function GalleryGrid() {
           {/* PREV BUTTON */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 md:left-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
+            className="z-50 absolute left-0 md:left-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
           >
             <ChevronLeft size={32} />
           </button>
@@ -105,13 +105,13 @@ export default function GalleryGrid() {
           {/* NEXT BUTTON */}
           <button
             onClick={nextSlide}
-            className="absolute right-4 md:right-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
+            className="z-50 absolute right-0 md:right-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
           >
             <ChevronRight size={32} />
           </button>
 
           {/* POPUP IMAGE */}
-          <div className="relative w-full max-w-4xl aspect-[4/3]">
+          <div className="relative w-[85%] md:w-[70%] lg:w-[50%] h-[70vh]">
             <Image
               src={galleryImages[popupIndex]}
               alt="Popup"

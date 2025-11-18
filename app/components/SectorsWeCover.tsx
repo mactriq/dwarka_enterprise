@@ -22,7 +22,7 @@ const sectors: Sector[] = [
 
 const SectorsWeCover = () => {
   return (
-    <section className="bg-[#F7F6F2] py-16 overflow-hidden">
+    <section className="bg-[#F7F6F2] lg:py-16 py-10 overflow-hidden">
       <div className="text-center">
         <h2 className="text-4xl lg:text-5xl font-semibold text-[#0C1622] mb-10">
           Sectors we Cover
@@ -57,7 +57,7 @@ const SectorsWeCover = () => {
                 key={index}
                 className="flex-shrink-0 flex flex-col items-center w-[120px]"
               >
-                <div className="w-24 h-24 rounded-full flex items-center justify-center mb-4 overflow-hidden">
+                <div className="lg:w-24 lg:h-24 w-18 h-18 rounded-full flex items-center justify-center mb-4 overflow-hidden">
                   <Image
                     src={sector.image}
                     alt={sector.title}

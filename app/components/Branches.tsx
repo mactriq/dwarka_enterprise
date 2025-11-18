@@ -2,9 +2,9 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Branches() {
   return (
-    <section className="w-full bg-[#F7F6F2] py-16 px-6 lg:px-20 mb-20">
+    <section className="w-full bg-[#F7F6F2] lg:py-16 py-6 px-6 lg:px-20 mb-20">
       <div className="mx-auto">
-        <div className="flex flex-col lg:flex-row gap-16 items-stretch justify-center">
+        <div className="flex flex-col lg:flex-row lg:gap-16 gap-6 items-stretch justify-center">
           {/* Branch 1 */}
           <div className="bg-white rounded-2xl p-6 flex items-start gap-4 w-full lg:w-1/2">
             <FaMapMarkerAlt className="text-[#AA2022] text-2xl mt-1" />

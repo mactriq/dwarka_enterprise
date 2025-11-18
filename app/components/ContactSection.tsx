@@ -6,12 +6,12 @@ export default function ContactSection() {
   const [activeTab, setActiveTab] = useState('sales');
 
   return (
-    <section className="w-full py-20 px-6 lg:px-20">
+    <section className="w-full lg:py-20 py-6 px-6 lg:px-20">
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-6 items-center">
         {/* Left Content */}
         <div>
-          <h3 className="text-6xl font-semibold text-gray-900 mb-6 leading-[5rem]">
+          <h3 className="lg:text-6xl text-4xl font-semibold text-gray-900 mb-6 lg:leading-[5rem] leading-[3rem]">
             Innovative and <br />
             Personalized <span className="text-[#AA2022]">HVAC</span> Solutions.
           </h3>

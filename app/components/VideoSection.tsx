@@ -3,7 +3,7 @@
 
 const VideoSection = () => {
   return (
-    <section className="relative w-full h-[400px] lg:h-[785px] overflow-hidden bg-black">
+    <section className="relative w-full h-[220px] lg:h-[785px] overflow-hidden bg-black">
 
       <video
         className="absolute inset-0 w-full h-full object-cover"

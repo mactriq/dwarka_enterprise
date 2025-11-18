@@ -41,7 +41,7 @@ export default function RootLayout({
           download
           className="fixed bottom-6 left-6 md:bottom-10 md:left-10 z-50 
                     flex items-center gap-3 bg-white text-[#16222E] 
-                    px-4 py-2 rounded-full shadow-lg 
+                    px-2 py-2 rounded-full shadow-lg 
                     hover:shadow-xl transition-all"
         >
           <span className="font-medium">Company Brochure</span>

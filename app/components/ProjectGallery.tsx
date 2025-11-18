@@ -94,11 +94,11 @@ export default function ProjectGallery() {
   };
 
   return (
-    <section className="py-18 px-6 lg:px-20">
+    <section className="lg:py-18 py-6 px-6 lg:px-20">
       <div>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-start gap-3 mb-18">
+        <div className="flex flex-wrap justify-start gap-3 lg:mb-18 mb-6">
           {categories.map((category) => (
             <button
               key={category}
@@ -132,14 +132,14 @@ export default function ProjectGallery() {
           ))}
         </div>
 
-        {/* Show More */}
+        {/* Load more */}
         {visibleCount < filteredProjects.length && (
-          <div className="flex justify-center mt-18">
+          <div className="flex justify-center lg:mt-18 mt-6">
             <button
               onClick={() => setVisibleCount((prev) => prev + 12)}
               className="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
             >
-              Show more
+              Load more
             </button>
           </div>
         )}
@@ -152,7 +152,7 @@ export default function ProjectGallery() {
         >
           {/* Close */}
           <button
-            className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
+            className="absolute top-6 lg:right-6 right-2 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
             onClick={closePopup}
           >
             <X size={32} />
@@ -160,20 +160,20 @@ export default function ProjectGallery() {
 
           {/* Prev */}
           <button
-            className="absolute left-4 md:left-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
+            className="absolute left-0 md:left-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition z-50"
             onClick={prev}>
             <ChevronLeft size={32} />
           </button>
 
           {/* Next */}
           <button
-            className="absolute right-4 md:right-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
+            className="absolute right-0 md:right-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition z-50"
             onClick={next}>
             <ChevronRight size={32} />
           </button>
 
           {/* Image */}
-          <div className="relative w-[90%] md:w-[70%] lg:w-[50%] h-[70vh]">
+          <div className="relative w-[80%] md:w-[70%] lg:w-[50%] h-[70vh]">
             <Image
               src={filteredProjects[popupIndex].src}
               alt=""

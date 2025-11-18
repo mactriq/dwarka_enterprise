@@ -59,7 +59,7 @@ const OurScope = () => {
       {/* Content Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-16 gap-0 items-start">
         {/* Left Image */}
-        <div className="relative w-full lg:h-[600px] h-[300px] rounded-lg overflow-hidden">
+        <div className="relative w-full lg:h-[590px] h-[300px] rounded-lg overflow-hidden">
           <Image
             src="/about/survey.png"
             alt="HVAC Installation"
@@ -84,6 +84,7 @@ const OurScope = () => {
                     {item.title}
                   </h3>
                 </div>
+
                 {activeIndex === index ? (
                   <FiChevronUp className="text-[#0C1622]" />
                 ) : (
@@ -91,15 +92,19 @@ const OurScope = () => {
                 )}
               </button>
 
-              {/* Description */}
-              {activeIndex === index && (
-                <p className="text-sm mt-3 pl-10 leading-relaxed">
+              {/* Smooth Animation Section */}
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out 
+                  ${activeIndex === index ? "max-h-40 opacity-100 mt-3" : "max-h-0 opacity-0"}`}
+              >
+                <p className="text-sm pl-10 leading-relaxed">
                   {item.description}
                 </p>
-              )}
+              </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

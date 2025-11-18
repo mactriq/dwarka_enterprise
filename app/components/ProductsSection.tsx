@@ -237,7 +237,7 @@ const ProductsSection = () => {
       {/* ---------------- PRODUCT POPUP ---------------- */}
         {activeProduct && (
         <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 p-4">
-            <div className="bg-white rounded-3xl lg:p-10 p-6 w-full max-w-7xl relative border">
+            <div className="bg-white rounded-3xl lg:p-10 p-6 w-full max-w-7xl relative border max-h-[90vh] overflow-y-auto">
 
             {/* Close Button */}
             <button
