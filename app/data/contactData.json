@@ -1,0 +1,13 @@
+{
+  "section": {
+    "heading": {
+      "text": "Innovative and Personalized HVAC Solutions.",
+      "highlight": "HVAC"
+    },
+    "leftImage": {
+      "src": "/contact/contact-left.png",
+      "alt": "HVAC worker"
+    },
+    "rightBackground": "/contact/contact-bg.png"
+  }
+}

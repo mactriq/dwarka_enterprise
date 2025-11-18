@@ -1,0 +1,12 @@
+{
+  "branches": [
+    {
+      "name": "Branch Office: New Delhi",
+      "address": "F-150A, Opp. Gate No.5, Jasola Metro Station A.F.E-II, Okhla,\nNew Delhi 110025"
+    },
+    {
+      "name": "Branch Office: Jaipur, Rajasthan",
+      "address": "2/29, Mahatma Gandhi Nagar, Nr. DCM Ajmer Road,\nJaipur (Raj.) 302006"
+    }
+  ]
+}

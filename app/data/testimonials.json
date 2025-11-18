@@ -1,0 +1,36 @@
+{
+  "heading": "Testimonials",
+  "subheading": "What Our Customer Say About Us",
+  "items": [
+    {
+      "quote": "Excellent HVAC service that keeps the air quality good and the system working reliably in our healthcare facility.",
+      "name": "AMC hospital",
+      "location": "Surat",
+      "image": "/projects/hospitals/hospital1.jpg"
+    },
+    {
+      "quote": "Great HVAC service that keeps our environment comfortable and safe, with quick support whenever needed.",
+      "name": "Galaxy hospital",
+      "location": "Bardoli",
+      "image": "/projects/hospitals/hospital2.jpg"
+    },
+    {
+      "quote": "Reliable HVAC service that keeps our hospital comfortable and running smoothly at all times.",
+      "name": "Shah hospital",
+      "location": "Karnal",
+      "image": "/projects/hospitals/hospital3.png"
+    },
+    {
+      "quote": "Professional HVAC maintenance team ensuring consistent performance and reliability.",
+      "name": "Kilkari hospital",
+      "location": "Surat",
+      "image": "/projects/hospitals/hospital8.png"
+    },
+    {
+      "quote": "Dwarka Enterprise provided us with a reliable, efficient HVAC solution that greatly improved comfort across Vidhyadeep University.",
+      "name": "Vidhyadeep university",
+      "location": "Kim",
+      "image": "/projects/education/education1.png"
+    }
+  ]
+}

@@ -1,49 +1,31 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from "react";
+import Image from "next/image";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-const galleryImages = [
-  '/gallery/work1.jpeg',
-  '/gallery/work2.png',
-  '/gallery/work3.jpeg',
-  '/gallery/work4.jpeg',
-  '/gallery/work5.jpeg',
-  '/gallery/work6.jpeg',
-  '/gallery/work7.jpeg',
-  '/gallery/work8.jpeg',
-  '/gallery/work9.jpeg',
-  '/gallery/work10.jpeg',
-  '/gallery/work11.jpeg',
-  '/gallery/work12.jpeg',
-  '/gallery/work13.jpeg',
-  '/gallery/work14.jpeg',
-  '/gallery/work15.jpeg',
-  '/gallery/work16.jpeg',
-];
+// Import JSON
+import galleryData from "../data/galleryData.json";
 
 export default function GalleryGrid() {
-  const [visibleCount, setVisibleCount] = useState(12);
+  const { galleryImages } = galleryData;
 
-  // POPUP STATE
+  const [visibleCount, setVisibleCount] = useState(12);
   const [popupIndex, setPopupIndex] = useState<number | null>(null);
 
   const handleShowMore = () => {
-    setVisibleCount(prev => prev + 12);
+    setVisibleCount((prev) => prev + 12);
   };
 
-  // NEXT slide (loop)
   const nextSlide = () => {
-    setPopupIndex(i => {
+    setPopupIndex((i) => {
       if (i === null) return null;
       return i === galleryImages.length - 1 ? 0 : i + 1;
     });
   };
 
-  // PREV slide (loop)
   const prevSlide = () => {
-    setPopupIndex(i => {
+    setPopupIndex((i) => {
       if (i === null) return null;
       return i === 0 ? galleryImages.length - 1 : i - 1;
     });
@@ -82,11 +64,11 @@ export default function GalleryGrid() {
         </div>
       )}
 
-      {/* POPUP OVERLAY */}
+      {/* POPUP */}
       {popupIndex !== null && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[9999] p-4">
 
-          {/* CLOSE BUTTON */}
+          {/* CLOSE */}
           <button
             onClick={() => setPopupIndex(null)}
             className="absolute top-6 lg:right-6 right-2 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
@@ -94,7 +76,7 @@ export default function GalleryGrid() {
             <X size={32} />
           </button>
 
-          {/* PREV BUTTON */}
+          {/* PREV */}
           <button
             onClick={prevSlide}
             className="z-50 absolute left-0 md:left-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
@@ -102,7 +84,7 @@ export default function GalleryGrid() {
             <ChevronLeft size={32} />
           </button>
 
-          {/* NEXT BUTTON */}
+          {/* NEXT */}
           <button
             onClick={nextSlide}
             className="z-50 absolute right-0 md:right-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
@@ -110,7 +92,7 @@ export default function GalleryGrid() {
             <ChevronRight size={32} />
           </button>
 
-          {/* POPUP IMAGE */}
+          {/* IMAGE POPUP */}
           <div className="relative w-[85%] md:w-[70%] lg:w-[50%] h-[70vh]">
             <Image
               src={galleryImages[popupIndex]}
@@ -122,7 +104,6 @@ export default function GalleryGrid() {
 
         </div>
       )}
-
     </section>
   );
 }

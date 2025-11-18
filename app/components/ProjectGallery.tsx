@@ -1,72 +1,22 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-
-const categories = ['All', 'Hospitals', 'Industries', 'Education', 'Corporate & Government', 'Other'];
-
-const projects = [
-  { src: '/projects/hospitals/hospital1.jpg', category: 'Hospitals' },
-  { src: '/projects/hospitals/hospital2.jpg', category: 'Hospitals' },
-  { src: '/projects/industries/industry1.jpg', category: 'Industries' },
-  { src: '/projects/education/education6.jpg', category: 'Education' },
-  { src: '/projects/hospitals/hospital10.png', category: 'Hospitals' },
-  { src: '/projects/industries/industry5.jpg', category: 'Industries' },
-  { src: '/projects/industries/industry2.png', category: 'Industries' },
-  { src: '/projects/hospitals/hospital5.png', category: 'Hospitals' },
-  { src: '/projects/education/education1.png', category: 'Education' },
-  { src: '/projects/industries/industry4.png', category: 'Industries' },
-  { src: '/projects/corporate/corporate10.png', category: 'Corporate & Government' },
-  { src: '/projects/hospitals/hospital9.png', category: 'Hospitals' },
-  { src: '/projects/education/education2.png', category: 'Education' },
-  { src: '/projects/hospitals/hospital6.jpg', category: 'Hospitals' },
-  { src: '/projects/corporate/corporate1.jpg', category: 'Corporate & Government' },
-  { src: '/projects/corporate/corporate2.jpg', category: 'Corporate & Government' },
-  { src: '/projects/corporate/corporate3.jpg', category: 'Corporate & Government' },
-  { src: '/projects/education/education5.jpg', category: 'Education' },
-  { src: '/projects/hospitals/hospital7.png', category: 'Hospitals' },
-  { src: '/projects/corporate/corporate9.jpg', category: 'Corporate & Government' },
-  { src: '/projects/industries/industry3.jpg', category: 'Industries' },
-  { src: '/projects/hospitals/hospital3.png', category: 'Hospitals' },
-  { src: '/projects/other/other3.jpg', category: 'Other' },
-  { src: '/projects/education/education3.jpg', category: 'Education' },
-  { src: '/projects/other/other10.png', category: 'Other' },
-  { src: '/projects/corporate/corporate4.jpg', category: 'Corporate & Government' },
-  { src: '/projects/industries/industry6.jpg', category: 'Industries' },
-  { src: '/projects/other/other4.png', category: 'Other' },
-  { src: '/projects/hospitals/hospital4.png', category: 'Hospitals' },
-  { src: '/projects/corporate/corporate5.png', category: 'Corporate & Government' },
-  { src: '/projects/other/other5.png', category: 'Other' },
-  { src: '/projects/hospitals/hospital8.png', category: 'Hospitals' },
-  { src: '/projects/education/education4.png', category: 'Education' },
-  { src: '/projects/other/other6.png', category: 'Other' },
-  { src: '/projects/other/other1a.png', category: 'Other' },
-  { src: '/projects/industries/industry7.png', category: 'Industries' },
-  { src: '/projects/corporate/corporate6.png', category: 'Corporate & Government' },
-  { src: '/projects/other/other7.png', category: 'Other' },
-  { src: '/projects/corporate/corporate7.jpg', category: 'Corporate & Government' },
-  { src: '/projects/industries/industry8.png', category: 'Industries' },
-  { src: '/projects/other/other8.png', category: 'Other' },
-  { src: '/projects/corporate/corporate8.png', category: 'Corporate & Government' },
-  { src: '/projects/education/education7.jpg', category: 'Education' },
-  { src: '/projects/other/other9.png', category: 'Other' },
-  { src: '/projects/other/other2.png', category: 'Other' },
-];
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import galleryData from "../data/projectGallery.json";
 
 export default function ProjectGallery() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [visibleCount, setVisibleCount] = useState(12);
+  const { categories, projects } = galleryData;
 
-  // popup
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(12);
   const [popupIndex, setPopupIndex] = useState<number | null>(null);
 
   const filteredProjects =
-    selectedCategory === 'All'
+    selectedCategory === "All"
       ? projects
       : projects.filter((p) => p.category === selectedCategory);
 
-  // Reset visible count when category changes
   useEffect(() => {
     setVisibleCount(12);
   }, [selectedCategory]);
@@ -96,17 +46,16 @@ export default function ProjectGallery() {
   return (
     <section className="lg:py-18 py-6 px-6 lg:px-20">
       <div>
-
-        {/* Filter Buttons */}
+        {/* FILTER BUTTONS */}
         <div className="flex flex-wrap justify-start gap-3 lg:mb-18 mb-6">
-          {categories.map((category) => (
+          {categories.map((category, index) => (
             <button
-              key={category}
+              key={index}
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-3 rounded-lg text-sm font-medium border transition ${
                 selectedCategory === category
-                  ? 'bg-gray-900 text-white border-gray-900'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
+                  ? "bg-gray-900 text-white border-gray-900"
+                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
               }`}
             >
               {category}
@@ -114,7 +63,7 @@ export default function ProjectGallery() {
           ))}
         </div>
 
-        {/* Grid */}
+        {/* GALLERY GRID */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredProjects.slice(0, visibleCount).map((project, i) => (
             <div
@@ -132,7 +81,7 @@ export default function ProjectGallery() {
           ))}
         </div>
 
-        {/* Load more */}
+        {/* LOAD MORE */}
         {visibleCount < filteredProjects.length && (
           <div className="flex justify-center lg:mt-18 mt-6">
             <button
@@ -147,10 +96,8 @@ export default function ProjectGallery() {
 
       {/* POPUP */}
       {popupIndex !== null && (
-        <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50"
-        >
-          {/* Close */}
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
+          {/* CLOSE BUTTON */}
           <button
             className="absolute top-6 lg:right-6 right-2 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition"
             onClick={closePopup}
@@ -158,21 +105,23 @@ export default function ProjectGallery() {
             <X size={32} />
           </button>
 
-          {/* Prev */}
+          {/* PREV */}
           <button
             className="absolute left-0 md:left-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition z-50"
-            onClick={prev}>
+            onClick={prev}
+          >
             <ChevronLeft size={32} />
           </button>
 
-          {/* Next */}
+          {/* NEXT */}
           <button
             className="absolute right-0 md:right-6 p-2 rounded-full hover:bg-gray-100 hover:text-black text-white hover:scale-110 transition z-50"
-            onClick={next}>
+            onClick={next}
+          >
             <ChevronRight size={32} />
           </button>
 
-          {/* Image */}
+          {/* IMAGE */}
           <div className="relative w-[80%] md:w-[70%] lg:w-[50%] h-[70vh]">
             <Image
               src={filteredProjects[popupIndex].src}

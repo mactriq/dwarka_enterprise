@@ -1,0 +1,16 @@
+{
+  "title": "Company Profile",
+  "description": [
+    "Dwarka Enterprise is a nationally recognized HVAC turnkey contracting and supply company, providing comprehensive climate control solutions across residential, healthcare, corporate, educational, and industrial sectors throughout India. With decades of experience and partnerships with multiple leading global HVAC brands, we deliver integrated, energy-efficient, and future-ready systems designed to meet the highest standards of performance and reliability.",
+    "Our strength lies in our end-to-end capability — from design and engineering to execution and maintenance. Supported by a team of seasoned professionals and certified engineers, Dwarka Enterprise ensures precision, quality, and operational excellence in every project we undertake, regardless of scale or complexity.",
+    "We are committed to advancing sustainable and intelligent HVAC solutions that enhance comfort while reducing energy consumption and environmental impact. Our projects are designed to align with modern green-building standards and smart infrastructure requirements, ensuring long-term efficiency and value.",
+    "At Dwarka Enterprise, we don’t just install HVAC systems — we engineer comfort, reliability, and trust. Our professional ethos and customer-first approach have made us one of India’s most dependable partners for turnkey HVAC solutions, setting benchmarks in quality, innovation, and performance."
+  ],
+  "images": {
+    "topLeft": "/about/hvac1.png",
+    "topRightTop": "/about/hvac2.png",
+    "topRightBottom": "/about/hvac-solutions.png",
+    "bottomLeft": "/about/hvac3.png",
+    "bottomRight": "/about/hvac4.png"
+  }
+}

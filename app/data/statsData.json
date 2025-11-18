@@ -1,0 +1,9 @@
+{
+  "stats": [
+    { "value": "1,482+", "label": "Satisfied Clients" },
+    { "value": "350+", "label": "Finished Projects" },
+    { "value": "85,000+", "label": "Tonnage Ac’s" },
+    { "value": "35,000+", "label": "HP" }
+  ],
+  "image": "/about/hvac-worker.png"
+}

@@ -1,0 +1,25 @@
+{
+  "sections": [
+    {
+      "title": "Our Vision",
+      "description": "To be India’s top HVAC partner, driving innovation, sustainability, and comfort for a brighter, greener future.",
+      "background": "/about/our-vision.png",
+      "buttonText": "Explore Our Products →",
+      "buttonLink": "/product"
+    },
+    {
+      "title": "Our Mission",
+      "description": "Delivering excellence in HVAC solutions, we create healthier, efficient indoor spaces, exceeding client expectations across India.",
+      "background": "/about/our-mission.png",
+      "buttonText": "See Our Projects →",
+      "buttonLink": "/project"
+    },
+    {
+      "title": "Core Values",
+      "description": "Excellence, Innovation, Customer Focus, Integrity, Sustainability, Safety, Teamwork, Adaptability, Community Engagement.",
+      "background": "/about/core-values.png",
+      "buttonText": "Get in Touch →",
+      "buttonLink": "/contact"
+    }
+  ]
+}

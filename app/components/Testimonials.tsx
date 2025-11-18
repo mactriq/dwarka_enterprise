@@ -1,49 +1,16 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-const testimonials = [
-  {
-    quote:
-      'Excellent HVAC service that keeps the air quality good and the system working reliably in our healthcare facility.',
-    name: 'AMC hospital',
-    location: 'Surat',
-    image: '/projects/hospitals/hospital1.jpg',
-  },
-  {
-    quote:
-      'Great HVAC service that keeps our environment comfortable and safe, with quick support whenever needed.',
-    name: 'Galaxy hospital',
-    location: 'Bardoli',
-    image: '/projects/hospitals/hospital2.jpg',
-  },
-  {
-    quote:
-      'Reliable HVAC service that keeps our hospital comfortable and running smoothly at all times.',
-    name: 'Shah hospital',
-    location: 'Karnal',
-    image: '/projects/hospitals/hospital3.png',
-  },
-  {
-    quote:
-      'Professional HVAC maintenance team ensuring consistent performance and reliability.',
-    name: 'Kilkari hospital',
-    location: 'Surat',
-    image: '/projects/hospitals/hospital8.png',
-  },
-  {
-    quote:
-      'Dwarka Enterprise provided us with a reliable, efficient HVAC solution that greatly improved comfort across Vidhyadeep University.',
-    name: 'Vidhyadeep university',
-    location: 'Kim',
-    image: '/projects/education/education1.png',
-  },
-];
+import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import testimonialsData from "../data/testimonials.json";
 
 export default function TestimonialsSection() {
-  const [current, setCurrent] = useState(0);
+  const testimonials = testimonialsData.items;
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollAmount = 350;
+
   const [cardsPerView, setCardsPerView] = useState(3);
 
   // RESPONSIVE CARDS PER VIEW
@@ -54,56 +21,61 @@ export default function TestimonialsSection() {
       else setCardsPerView(3); // desktop
     };
 
-    handleResize(); // run on load
-    window.addEventListener('resize', handleResize);
+    handleResize(); 
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const prev = () => {
-    if (current > 0) setCurrent(current - 1);
+  // NEW SMOOTH SCROLL CONTROLS
+  const next = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
   };
 
-  const next = () => {
-    if (current < testimonials.length - cardsPerView)
-      setCurrent(current + 1);
+  const prev = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    }
   };
 
   return (
     <section className="bg-white py-16 px-6 lg:px-20">
       <div className="lg:mb-10">
+
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between lg:mb-10 mb-6">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">Testimonials</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
+            {testimonialsData.heading}
+          </h2>
           <p className="text-black mt-2 sm:mt-0 text-base">
-            What Our Customer Say About Us
+            {testimonialsData.subheading}
           </p>
         </div>
 
         {/* Carousel */}
         <div className="relative flex items-center">
-          {/* Left Arrow */}
+
+          {/* LEFT ARROW */}
           <button
             onClick={prev}
-            disabled={current === 0}
-            className={`absolute -left-6 md:-left-8 z-10 p-2 rounded-full hover:bg-gray-100 text-black hover:scale-110 transition ${
-              current === 0 ? 'opacity-30 cursor-not-allowed' : ''
-            }`}
+            className="absolute -left-6 md:-left-8 z-10 p-2 rounded-full hover:bg-gray-100 text-black hover:scale-110 transition"
           >
             <ChevronLeft size={32} strokeWidth={1.5} />
           </button>
 
-          {/* Cards Container */}
-          <div className="overflow-hidden w-full">
-            <div
-              className="flex gap-6 transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${current * (100 / cardsPerView)}%)` }}
-            >
+          {/* SCROLLABLE TRACK */}
+          <div
+            ref={scrollRef}
+            className="overflow-x-scroll no-scrollbar scrollbar-hide w-full scroll-smooth"
+          >
+            <div className="flex gap-6">
               {testimonials.map((t, i) => (
                 <div
                   key={i}
                   className="bg-[#F7F6F2] flex-shrink-0 rounded-2xl p-6
-                             w-full sm:w-1/2 md:w-1/4
+                             w-[80%] sm:w-[48%] md:w-[30%]
                              transition flex flex-col justify-between"
                 >
                   <p className="text-gray-700 text-base leading-relaxed mb-2">
@@ -124,21 +96,15 @@ export default function TestimonialsSection() {
                       <p className="text-gray-500 text-sm">{t.location}</p>
                     </div>
                   </div>
-
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right Arrow */}
+          {/* RIGHT ARROW */}
           <button
             onClick={next}
-            disabled={current >= testimonials.length - cardsPerView}
-            className={`absolute -right-6 md:-right-8 z-10 p-2 rounded-full hover:bg-gray-100 text-black hover:scale-110 transition ${
-              current >= testimonials.length - cardsPerView
-                ? 'opacity-30 cursor-not-allowed'
-                : ''
-            }`}
+            className="absolute -right-6 md:-right-8 z-10 p-2 rounded-full hover:bg-gray-100 text-black hover:scale-110 transition"
           >
             <ChevronRight size={32} strokeWidth={1.5} />
           </button>

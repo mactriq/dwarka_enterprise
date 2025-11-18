@@ -1,0 +1,134 @@
+{
+  "brands": ["LG", "Voltas", "General", "O.G. Heavy Duty", "Carrier", "Toshiba"],
+  "categories": ["Split AC", "Cassette AC", "Duct AC", "HVAC"],
+  "products": [
+    {
+      "category": "Split AC",
+      "brand": "LG",
+      "name": "Split Air Conditioner",
+      "image": "/products/display-product/split-AC.png",
+      "homeImage": "/products/split-ac.png",
+      "description": "A split air conditioner is an efficient cooling system that consists of two separate units: an indoor unit and an outdoor unit. It is a popular alternative to window ACs because it offers quiet operation and more flexible installation options.",
+      "features": [
+        "Quiet operation",
+        "Energy efficiency",
+        "Aesthetics",
+        "Installation flexibility",
+        "Improved air quality"
+      ],
+      "broucher": "/products/broucher/RAC 2025 Digital catalogue.pdf"
+    },
+    {
+      "category": "Cassette AC",
+      "brand": "Voltas",
+      "name": "1 way Cassette Air Conditioner",
+      "image": "/products/display-product/1-way-ac.png",
+      "homeImage": "/products/1way-ac.png",
+      "description": "Bringing you an ideal cooling solution, the 1 Way Cassette is a great choice for different businesses. With quality technology and premium designs, discover how this air conditioner will keep your office comfortable.",
+      "features": [
+        "Slim & Compact Indoor Unit",
+        "4 Way Air Blow Auto Control",
+        "Comfort Cooling (Direct / Indirect Wind)"
+      ],
+      "broucher": "/products/broucher/2025 CST Leaflet.pdf"
+    },
+    {
+      "category": "Cassette AC",
+      "brand": "LG",
+      "name": "4 way Cassette Air Conditioner",
+      "image": "/products/display-product/4-way-ac.png",
+      "homeImage": "/products/4way-ac.png",
+      "description": "The ceiling-mounted cassette provides a comfortable and aesthetically pleasing environment, making it an ideal asset for your business. The cassette-type indoor unit also purifies the air, ensuring a fresher and healthier atmosphere.",
+      "features": [
+        "Stylish Design Panel",
+        "Compact Size",
+        "Convenient Panel Installation",
+        "High Ceiling Mode",
+        "Independent Control of Air Flow"
+      ],
+      "broucher": "/products/broucher/2025 Light Commercial Catalogue.pdf"
+    },
+    {
+      "category": "Duct AC",
+      "brand": "Voltas",
+      "name": "Duct Air Conditioner",
+      "image": "/products/display-product/duct-ac.png",
+      "homeImage": "/products/duct-ac.png",
+      "description": "The ceiling concealed duct is a discreet cooling and heating solution that provides optimal temperature control without affecting interior aesthetics.",
+      "features": [
+        "Easy Service & Maintenance",
+        "E.S.P. (External Static Pressure) Control",
+        "Minimized Height",
+        "High Energy Efficiency At Part Loads",
+        "Higher Efficiency With Brushless Dc (Bldc) Motors",
+        "High Energy Efficiency",
+        "Long Distance Piping"
+      ],
+      "broucher": "/products/broucher/Inverter Duct Leaflet 2024.pdf"
+    },
+    {
+      "category": "HVAC",
+      "brand": "General",
+      "name": "VRF / VRV System",
+      "image": "/products/display-product/vrv-system.png",
+      "homeImage": "/products/vrf-system.png",
+      "description": "Latest Trend In HVAC Technology. Variable Refrigerant Flow (VRF) is a latest trend in HVAC technology invented in Japan which helps in reducing electricity consumption by regualting refrigerant flow of liquid. Hence, the machine performs efficiently according to human occupancy, oreintation, direction of sun, heat generating equipment with a lesser pay back period.",
+      "features": [
+        "Energy efficiency",
+        "Quiet Operation",
+        "Heat & Cool Simultanneously",
+        "Constant Comfort",
+        "Requires Less Space",
+        "Morden Controls"
+      ],
+      "broucher": "/products/broucher/2025 Multi V 5 Small Catalogue.pdf"
+    },
+    {
+      "category": "HVAC",
+      "brand": "O.G. Heavy Duty",
+      "name": "Precision Air Conditioner",
+      "image": "/products/display-product/precision-ac.png",
+      "homeImage": "/products/precision-ac.png",
+      "description": "Keep Data & server Centre cool & process fast Precision Air Conditioning System is mostly known as PACs that cools Data centres, Server rooms, IT equipment.",
+      "features": [
+        "Precise humidity control",
+        "Design for 24 x 7, 365 days continuous operation",
+        "Better faster Morden control",
+        "Remotely accessible"
+      ],
+      "broucher": "/products/broucher/Carrier Inverter Package AC.pdf"
+    },
+    {
+      "category": "HVAC",
+      "brand": "Carrier",
+      "name": "Chiller Base HVAC System",
+      "image": "/products/display-product/chiller.png",
+      "homeImage": "/products/chiller.png",
+      "description": "One Company, Tons of Capacity. With a wide range of types, capacities and sustainable refrigerant options, we are leader in chiller options. With non-ozone depleting refrigerant, simple installation superior efficiency & powerful controls, these units are ideal for both replacement & new construction projects. Innovative chiller solutions are designed to bring efficient, reliable cooling to all types of large commercial applications.",
+      "features": [
+        "Longer Life Span",
+        "Quiet Operation",
+        "Constant Comfort",
+        "Cost Effective",
+        "Eco-Friendly"
+      ],
+      "broucher": "/products/broucher/Hydrokit.pdf"
+    },
+    {
+      "category": "HVAC",
+      "brand": "Toshiba",
+      "name": "Multi I home solution",
+      "image": "/products/display-product/multi-i.png",
+      "homeImage": "/products/multi-i.png",
+      "description": "A versatile and efficient multi-zone HVAC system designed to power several indoor units from one outdoor unit, providing personalized comfort for every room. With quiet operation, advanced inverter technology, and a compact footprint, it offers an ideal solution for modern homes seeking reliable, energy-saving climate control.",
+      "features": [
+        "Multi-Zone Temperature Control",
+        "High Energy Efficiency with Inverter Technology",
+        "Quiet Indoor & Outdoor Operation",
+        "Compact, Space-Saving Design",
+        "Eco-Friendly Refrigerant Options"
+      ],
+      "broucher": "/products/broucher/SAC_Multi Home_2025_Catalogue.pdf"
+    }
+  ]
+}

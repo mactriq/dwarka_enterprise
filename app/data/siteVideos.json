@@ -1,0 +1,12 @@
+{
+  "videos": [
+    { "url": "/gallery/videos/video1.mp4" },
+    { "url": "/gallery/videos/video2.mp4" },
+    { "url": "/gallery/videos/video3.mp4" },
+    { "url": "/gallery/videos/video4.mp4" },
+    { "url": "/gallery/videos/video5.mp4" },
+    { "url": "/gallery/videos/video6.mp4" },
+    { "url": "/gallery/videos/video7.mp4" },
+    { "url": "/gallery/videos/video8.mp4" }
+  ]
+}

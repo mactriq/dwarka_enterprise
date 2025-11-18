@@ -1,32 +1,37 @@
 'use client';
-
 import { useState } from 'react';
+import contactData from '../data/contactData.json';
 
 export default function ContactSection() {
+  const { section } = contactData;
   const [activeTab, setActiveTab] = useState('sales');
 
   return (
     <section className="w-full lg:py-20 py-6 px-6 lg:px-20">
-
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-6 items-center">
+
         {/* Left Content */}
         <div>
           <h3 className="lg:text-6xl text-4xl font-semibold text-gray-900 mb-6 lg:leading-[5rem] leading-[3rem]">
-            Innovative and <br />
-            Personalized <span className="text-[#AA2022]">HVAC</span> Solutions.
+            {section.heading.text.split(section.heading.highlight)[0]}
+            <span className="text-[#AA2022]">{section.heading.highlight}</span>
+            {section.heading.text.split(section.heading.highlight)[1]}
           </h3>
           <div className="rounded-2xl overflow-hidden">
             <img
-              src="/contact/contact-left.png"
-              alt="HVAC worker"
+              src={section.leftImage.src}
+              alt={section.leftImage.alt}
               className="w-full h-auto object-cover"
             />
           </div>
         </div>
 
-        {/* Right Form */}
-        <div className="bg-[url('/contact/contact-bg.png')] h-full bg-cover bg-center rounded-2xl lg:p-24 p-4 flex items-center justify-center">
-            <div className="bg-white rounded-xl lg:p-6 p-4 w-full">
+        {/* Right Background Section */}
+        <div
+          className="h-full bg-cover bg-center rounded-2xl lg:p-24 p-4 flex items-center justify-center"
+          style={{ backgroundImage: `url(${section.rightBackground})` }}
+        >
+          <div className="bg-white rounded-xl lg:p-6 p-4 w-full">
                 {/* Tabs */}
                 <div className="flex gap-3 mb-10">
                 <button
@@ -165,6 +170,7 @@ export default function ContactSection() {
                 )}
             </div>
         </div>
+
       </div>
     </section>
   );

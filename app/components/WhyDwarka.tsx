@@ -1,41 +1,11 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Link from "next/link";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-const whyData = [
-  {
-    icon: "/about/icons/expertise.png",
-    title: "Expertise",
-    desc: "Our seasoned engineers provide HVAC solutions for optimal performance.",
-  },
-  {
-    icon: "/about/icons/quality.png",
-    title: "Quality Assurance",
-    desc: "Partnering with LG ensures industry-leading products and standards.",
-  },
-  {
-    icon: "/about/icons/customer.png",
-    title: "Customer-Centric",
-    desc: "We prioritize your unique needs and exceed expectations.",
-  },
-  {
-    icon: "/about/icons/sustainability.png",
-    title: "Sustainability",
-    desc: "We reduce your carbon footprint and operational costs.",
-  },
-  {
-    icon: "/about/icons/innovation.png",
-    title: "Innovation",
-    desc: "Stay ahead with cutting-edge, energy-efficient technology.",
-  },
-  {
-    icon: "/about/icons/safety.png",
-    title: "Safety",
-    desc: "Our rigorous safety protocols and adaptability guarantee satisfaction.",
-  },
-];
+// Import JSON Data
+import whyDwarkaData from "../data/whyDwarka.json";
 
 const WhyDwarka = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -61,17 +31,22 @@ const WhyDwarka = () => {
 
         {/* Header */}
         <div className="flex justify-between items-center mb-10">
-          <h2 className="text-4xl lg:text-5xl font-bold">Why Dwarka</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold">
+            {whyDwarkaData.heading}
+          </h2>
+
           <Link
-            href="/about"
+            href={whyDwarkaData.buttonLink}
             className="border border-white text-white hover:text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-white transition whitespace-nowrap"
           >
-            Know More →
+            {whyDwarkaData.buttonText}
           </Link>
         </div>
 
-        {/* Cards Section */}
+        {/* Scrollable Cards */}
         <div className="relative">
+
+          {/* Cards Wrapper */}
           <div
             ref={scrollRef}
             className="
@@ -83,7 +58,7 @@ const WhyDwarka = () => {
               snap-x snap-mandatory
             "
           >
-            {whyData.map((item, index) => (
+            {whyDwarkaData.cards.map((item, index) => (
               <div
                 key={index}
                 className="
@@ -114,6 +89,7 @@ const WhyDwarka = () => {
               </div>
             ))}
           </div>
+
         </div>
 
       </div>

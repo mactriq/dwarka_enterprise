@@ -1,24 +1,11 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import sectors from "../data/sectors.json";
 
 interface Sector {
   image: string;
   title: string;
 }
-
-const sectors: Sector[] = [
-  { image: "/sectors/manufacturing.png", title: "MANUFACTURING INDUSTRIES" },
-  { image: "/sectors/education.png", title: "EDUCATION INDUSTRIES" },
-  { image: "/sectors/hospital.png", title: "HOSPITAL" },
-  { image: "/sectors/hotel.png", title: "HOTEL AND RESORTS" },
-  { image: "/sectors/community.png", title: "COMMUNITY HALL" },
-  { image: "/sectors/medicine.png", title: "PHARMACEUTICAL" },
-  { image: "/sectors/residential.png", title: "RESIDENTIALS" },
-  { image: "/sectors/bank.png", title: "BANKS" },
-  { image: "/sectors/office.png", title: "COMMERCIAL OFFICES" },
-  { image: "/sectors/entertainment.png", title: "ENTERTAINMENT INDUSTRY" },
-];
 
 const SectorsWeCover = () => {
   return (
@@ -28,7 +15,6 @@ const SectorsWeCover = () => {
           Sectors we Cover
         </h2>
 
-        {/* Inline CSS animation (self-contained) */}
         <style jsx>{`
           @keyframes marqueeScroll {
             0% {
@@ -48,11 +34,9 @@ const SectorsWeCover = () => {
           }
         `}</style>
 
-        {/* Scrolling container */}
         <div className="relative w-full overflow-hidden">
-          <div className="marquee gap-10">
-            {/* Repeat the items twice for seamless loop */}
-            {[...sectors, ...sectors].map((sector, index) => (
+          <div className="marquee lg:gap-16 gap-10">
+            {[...sectors, ...sectors].map((sector: Sector, index: number) => (
               <div
                 key={index}
                 className="flex-shrink-0 flex flex-col items-center w-[120px]"
@@ -66,6 +50,7 @@ const SectorsWeCover = () => {
                     className="object-contain"
                   />
                 </div>
+
                 <p className="text-sm font-semibold text-[#0C1622] text-center leading-tight">
                   {sector.title}
                 </p>

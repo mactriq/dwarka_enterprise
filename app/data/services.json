@@ -1,0 +1,9 @@
+{
+  "services": [
+    { "icon": "/contact/icons/maintenance.png", "label": "Maintenance" },
+    { "icon": "/contact/icons/installation.png", "label": "Installation" },
+    { "icon": "/contact/icons/renovation.png", "label": "Renovation" },
+    { "icon": "/contact/icons/cooling.png", "label": "Cooling" },
+    { "icon": "/contact/icons/safety.png", "label": "Safety" }
+  ]
+}

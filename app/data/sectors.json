@@ -1,0 +1,12 @@
+[
+  { "image": "/sectors/manufacturing.png", "title": "MANUFACTURING INDUSTRIES" },
+  { "image": "/sectors/education.png", "title": "EDUCATION INDUSTRIES" },
+  { "image": "/sectors/hospital.png", "title": "HOSPITAL" },
+  { "image": "/sectors/hotel.png", "title": "HOTEL AND RESORTS" },
+  { "image": "/sectors/community.png", "title": "COMMUNITY HALL" },
+  { "image": "/sectors/medicine.png", "title": "PHARMACEUTICAL" },
+  { "image": "/sectors/residential.png", "title": "RESIDENTIALS" },
+  { "image": "/sectors/bank.png", "title": "BANKS" },
+  { "image": "/sectors/office.png", "title": "COMMERCIAL OFFICES" },
+  { "image": "/sectors/entertainment.png", "title": "ENTERTAINMENT INDUSTRY" }
+]

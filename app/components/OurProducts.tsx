@@ -5,16 +5,8 @@ import { FaArrowRight } from "react-icons/fa";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-const products = [
-  { src: "/products/split-ac.png", name: "Split Air Conditioner" },
-  { src: "/products/1way-ac.png", name: "1 Way Air Conditioner" },
-  { src: "/products/4way-ac.png", name: "4 Way Air Conditioner" },
-  { src: "/products/duct-ac.png", name: "Duct Air Conditioner" },
-  { src: "/products/precision-ac.png", name: "Precision AC" },
-  { src: "/products/vrf-system.png", name: "VRF / VRV System" },
-  { src: "/products/chiller.png", name: "Chiller Base System" },
-  { src: "/products/multi-i.png", name: "Multi I home solution" },
-];
+// Import products JSON
+import productsJson from "../data/productsData.json";
 
 const OurProducts = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -58,7 +50,7 @@ const OurProducts = () => {
         ref={scrollRef}
         className="flex gap-6 overflow-x-scroll scrollbar-hide pb-6 snap-x snap-mandatory"
       >
-        {products.map((product, index) => (
+        {productsJson.products.map((product, index) => (
           <div
             key={index}
             className="relative min-w-[220px] lg:min-w-[300px] bg-white rounded-3xl overflow-hidden transition-all duration-300 snap-start"
@@ -66,7 +58,7 @@ const OurProducts = () => {
             {/* Product Image */}
             <div className="relative lg:h-[380px] h-[350px] w-[300px]">
               <Image
-                src={product.src}
+                src={product.homeImage || product.image}
                 alt={product.name}
                 fill
                 className="object-cover bg-[#F7F6F2]"
@@ -79,7 +71,10 @@ const OurProducts = () => {
                 {product.name}
               </h3>
 
-              <Link  href="/product" className="border hover:bg-white hover:text-[#16222E] bg-[#16222E] text-white p-4 rounded-full transition">
+              <Link
+                href="/product"
+                className="border hover:bg-white hover:text-[#16222E] bg-[#16222E] text-white p-4 rounded-full transition"
+              >
                 <FaArrowRight />
               </Link>
             </div>

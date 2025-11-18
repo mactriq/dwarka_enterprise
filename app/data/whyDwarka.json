@@ -1,0 +1,37 @@
+{
+  "buttonText": "Know More →",
+  "buttonLink": "/about",
+  "heading": "Why Dwarka",
+  "cards": [
+    {
+      "icon": "/about/icons/expertise.png",
+      "title": "Expertise",
+      "desc": "Our seasoned engineers provide HVAC solutions for optimal performance."
+    },
+    {
+      "icon": "/about/icons/quality.png",
+      "title": "Quality Assurance",
+      "desc": "Partnering with LG ensures industry-leading products and standards."
+    },
+    {
+      "icon": "/about/icons/customer.png",
+      "title": "Customer-Centric",
+      "desc": "We prioritize your unique needs and exceed expectations."
+    },
+    {
+      "icon": "/about/icons/sustainability.png",
+      "title": "Sustainability",
+      "desc": "We reduce your carbon footprint and operational costs."
+    },
+    {
+      "icon": "/about/icons/innovation.png",
+      "title": "Innovation",
+      "desc": "Stay ahead with cutting-edge, energy-efficient technology."
+    },
+    {
+      "icon": "/about/icons/safety.png",
+      "title": "Safety",
+      "desc": "Our rigorous safety protocols and adaptability guarantee satisfaction."
+    }
+  ]
+}
