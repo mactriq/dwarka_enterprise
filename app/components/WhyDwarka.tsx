@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+// import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 // Import JSON Data
 import whyDwarkaData from "../data/whyDwarka.json";
