@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import contactData from "../data/contactData.json";
+import Link from "next/link";
 
 export default function ContactSection() {
   const { section } = contactData;
@@ -198,9 +199,16 @@ export default function ContactSection() {
                 <input name="address" placeholder="Address" value={careerForm.address}
                   onChange={handleCareerChange} className="border-b w-full bg-transparent text-sm p-1" />
 
-                <label className="block text-sm font-medium text-gray-700">Upload Your CV</label>
-                <input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.csv" onChange={handleCareerFile}
-                  className="w-full border border-gray-300 rounded-md px-3 text-sm py-2 required" />
+                <label className="block text-sm font-medium text-gray-700">Upload Your CV On:
+                  <Link
+                    href="mailto:dwarkaenterprise16@gmail.com"
+                    className="hover:text-gray-400 underline ml-2"
+                  >
+                    dwarkaenterprise16@gmail.com
+                  </Link>
+                  </label>
+                {/* <input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.csv" onChange={handleCareerFile}
+                  className="w-full border border-gray-300 rounded-md px-3 text-sm py-2 required" /> */}
 
                 <button type="submit" className="cursor-pointer w-full bg-gray-900 text-white hover:bg-white hover:text-black border py-2 rounded-md">
                   Submit

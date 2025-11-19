@@ -1,71 +1,60 @@
+import { Resend } from "resend";
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
     const contentType = request.headers.get("content-type") || "";
+    let data: any = {};
 
-    let name, email, phone, address, message, formType, cvFile;
-
+    // Detect JSON or FormData (career form with file)
     if (contentType.includes("multipart/form-data")) {
-      // Handle Career form (with file)
       const formData = await request.formData();
+      const formType = formData.get("formType") as string;
+      const name = formData.get("name") as string;
+      const email = formData.get("email") as string;
+      const phone = formData.get("phone") as string;
+      const address = formData.get("address") as string;
+      const cv = formData.get("cv") as File | null;
 
-      formType = formData.get("formType") as string;
-      name = formData.get("name") as string;
-      email = formData.get("email") as string;
-      phone = formData.get("phone") as string;
-      address = formData.get("address") as string;
-      cvFile = formData.get("cv") as File | null;
-
-      message = `Address: ${address}`;
+      data = {
+        formType,
+        name,
+        email,
+        phone,
+        address,
+        // cvName: cv ? cv.name : "Not uploaded",
+      };
     } else {
-      // Handle Sales form (JSON)
-      const body = await request.json();
-      ({ name, email, phone, message, formType } = body);
+      data = await request.json(); // Sales form
     }
 
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      return NextResponse.json({ success: false, error: "Server email config missing" }, { status: 500 });
+    // Build email content
+    let emailText = `Form Type: ${data.formType}\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\n`;
+
+    // Include career-specific fields if present
+    if (data.address) {
+      emailText += `Address: ${data.address}\n`;
+    }
+    if (data.cvName) {
+      emailText += `CV File: ${data.cvName}\n`;
+    }
+    if (data.message) {
+      emailText += `Message: ${data.message}\n`;
     }
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    const attachments: any[] = [];
-
-    if (cvFile) {
-      const arrayBuffer = await cvFile.arrayBuffer();
-      attachments.push({
-        filename: cvFile.name,
-        content: Buffer.from(arrayBuffer),
-      });
-    }
-
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
+    // Send email via Resend
+    await resend.emails.send({
+      from: "Your Website <onboarding@resend.dev>",
       to: "harshitchejara29@gmail.com",
-      subject: `New ${formType} Submission`,
-      text: `
-Form Type: ${formType}
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Message: ${message}
-`,
-      attachments,
-    };
-
-    await transporter.sendMail(mailOptions);
+      subject: `New ${data.formType} Submission`,
+      text: emailText,
+    });
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error("Email error:", error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    console.error("Resend email error:", error);
+    return NextResponse.json({ success: false, error: error.message });
   }
 }
