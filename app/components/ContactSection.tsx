@@ -1,176 +1,215 @@
-'use client';
-import { useState } from 'react';
-import contactData from '../data/contactData.json';
+"use client";
+import { useState } from "react";
+import contactData from "../data/contactData.json";
 
 export default function ContactSection() {
   const { section } = contactData;
-  const [activeTab, setActiveTab] = useState('sales');
+  const [activeTab, setActiveTab] = useState<"sales" | "career">("sales");
+  const [showPopup, setShowPopup] = useState(false);
+
+  const [salesForm, setSalesForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [careerForm, setCareerForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    cv: null as File | null,
+  });
+
+  const handleSalesChange = (e: any) => {
+    setSalesForm({ ...salesForm, [e.target.name]: e.target.value });
+  };
+
+  const handleCareerChange = (e: any) => {
+    setCareerForm({ ...careerForm, [e.target.name]: e.target.value });
+  };
+
+  const handleCareerFile = (e: any) => {
+    setCareerForm({
+      ...careerForm,
+      cv: e.target.files ? e.target.files[0] : null,
+    });
+  };
+
+  const triggerSuccessPopup = () => {
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 3000);
+  };
+
+  // ⭐ SALES FORM SUBMIT
+  const handleSalesSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+      body: JSON.stringify({
+        formType: "Sales Inquiry",
+        ...salesForm,
+      }),
+    });
+
+    if (res.ok) {
+      triggerSuccessPopup();
+      setSalesForm({ name: "", email: "", phone: "", message: "" });
+    } else {
+      alert("Failed to send email.");
+    }
+  };
+
+  // ⭐ CAREER FORM SUBMIT (WITH ATTACHMENT)
+  const handleCareerSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("formType", "Career Application");
+    formData.append("name", careerForm.name);
+    formData.append("email", careerForm.email);
+    formData.append("phone", careerForm.phone);
+    formData.append("address", careerForm.address);
+
+    if (careerForm.cv) {
+      formData.append("cv", careerForm.cv);
+    }
+
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (res.ok) {
+      triggerSuccessPopup();
+      setCareerForm({
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        cv: null,
+      });
+    } else {
+      alert("Failed to send email.");
+    }
+  };
 
   return (
-    <section className="w-full lg:py-20 py-6 px-6 lg:px-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-16 gap-6 items-center">
+    <section className="w-full lg:py-20 py-6 px-6 lg:px-20 relative">
 
-        {/* Left Content */}
+      {showPopup && (
+        <div className="fixed top-10 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-md shadow-lg z-50">
+          Your data has been submitted successfully.
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16">
+
+        {/* LEFT SECTION */}
         <div>
-          <h3 className="lg:text-6xl text-4xl font-semibold text-gray-900 mb-6 lg:leading-[5rem] leading-[3rem]">
+          <h3 className="lg:text-6xl text-4xl font-semibold text-gray-900 mb-6">
             {section.heading.text.split(section.heading.highlight)[0]}
             <span className="text-[#AA2022]">{section.heading.highlight}</span>
             {section.heading.text.split(section.heading.highlight)[1]}
           </h3>
-          <div className="rounded-2xl overflow-hidden">
-            <img
-              src={section.leftImage.src}
-              alt={section.leftImage.alt}
-              className="w-full h-auto object-cover"
-            />
-          </div>
+
+          <img
+            src={section.leftImage.src}
+            alt={section.leftImage.alt}
+            className="rounded-2xl w-full object-cover"
+          />
         </div>
 
-        {/* Right Background Section */}
+        {/* RIGHT FORM AREA */}
         <div
-          className="h-full bg-cover bg-center rounded-2xl lg:p-24 p-4 flex items-center justify-center"
+          className="rounded-2xl bg-cover bg-center lg:p-24 p-4"
           style={{ backgroundImage: `url(${section.rightBackground})` }}
         >
-          <div className="bg-white rounded-xl lg:p-6 p-4 w-full">
-                {/* Tabs */}
-                <div className="flex gap-3 mb-10">
-                <button
-                    onClick={() => setActiveTab('sales')}
-                    className={`px-4 py-2 rounded-md text-sm font-medium ${
-                    activeTab === 'sales'
-                        ? 'bg-gray-900 text-white'
-                        : 'border border-gray-400 text-gray-700'
-                    }`}
-                >
-                    Contact Sales
-                </button>
-                <button
-                    onClick={() => setActiveTab('career')}
-                    className={`px-4 py-2 rounded-md text-sm font-medium ${
-                    activeTab === 'career'
-                        ? 'bg-gray-900 text-white'
-                        : 'border border-gray-400 text-gray-700'
-                    }`}
-                >
-                    Contact Career
-                </button>
-                </div>
+          <div className="bg-white rounded-xl lg:p-6 p-4">
 
-                {/* Conditional Form */}
-                {activeTab === 'sales' ? (
-                // Contact Sales Form
-                <form className="space-y-6">
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Name
-                    </label>
-                    <input
-                        type="text"
-                        placeholder="enter your name"
-                        className="mt-1 w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 bg-transparent py-2"
-                    />
-                    </div>
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Email
-                    </label>
-                    <input
-                        type="email"
-                        placeholder="enter your email"
-                        className="mt-1 w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 bg-transparent py-2"
-                    />
-                    </div>
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Phone no.
-                    </label>
-                    <input
-                        type="tel"
-                        placeholder="enter your phone no."
-                        className="mt-1 w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 bg-transparent py-2"
-                    />
-                    </div>
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Message
-                    </label>
-                    <textarea
-                        placeholder="enter your message"
-                        rows={4}
-                        className="mt-1 w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 bg-transparent py-2"
-                    ></textarea>
-                    </div>
-                    <button
-                    type="submit"
-                    className="mt-4 w-full bg-gray-900 text-white py-2 rounded-md hover:bg-gray-800 transition"
-                    >
-                    Submit
-                    </button>
-                </form>
-                ) : (
-                // Contact Career Form
-                <form className="space-y-6">
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Name
-                    </label>
-                    <input
-                        type="text"
-                        placeholder="enter your name"
-                        className="mt-1 w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 bg-transparent py-2"
-                    />
-                    </div>
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Email
-                    </label>
-                    <input
-                        type="email"
-                        placeholder="enter your email"
-                        className="mt-1 w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 bg-transparent py-2"
-                    />
-                    </div>
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Phone no.
-                    </label>
-                    <input
-                        type="tel"
-                        placeholder="enter your phone no."
-                        className="mt-1 w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 bg-transparent py-2"
-                    />
-                    </div>
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Address
-                    </label>
-                    <input
-                        type="text"
-                        placeholder="enter your address"
-                        className="mt-1 w-full border-b border-gray-300 focus:outline-none focus:border-gray-800 bg-transparent py-2"
-                    />
-                    </div>
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Upload your CV
-                    </label>
-                    <input
-                        type="file"
-                        accept=".pdf,.doc,.docx"
-                        className="mt-2 w-full text-gray-700 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                    />
-                    </div>
-                    <button
-                    type="submit"
-                    className="mt-4 w-full bg-gray-900 text-white py-2 rounded-md hover:bg-gray-800 transition"
-                    >
-                    Submit
-                    </button>
-                </form>
-                )}
+            {/* TABS */}
+            <div className="flex gap-3 mb-10">
+              <button
+                onClick={() => setActiveTab("sales")}
+                className={`px-4 py-2 rounded-md text-sm font-medium ${
+                  activeTab === "sales"
+                    ? "bg-gray-900 text-white"
+                    : "border border-gray-400 text-gray-700"
+                }`}
+              >
+                Contact Sales
+              </button>
+
+              <button
+                onClick={() => setActiveTab("career")}
+                className={`px-4 py-2 rounded-md text-sm font-medium ${
+                  activeTab === "career"
+                    ? "bg-gray-900 text-white"
+                    : "border border-gray-400 text-gray-700"
+                }`}
+              >
+                Contact Career
+              </button>
             </div>
-        </div>
 
+            {/* SALES FORM */}
+            {activeTab === "sales" && (
+              <form className="space-y-4" onSubmit={handleSalesSubmit}>
+                <label className="block text-sm font-medium text-gray-700">Name</label>
+                <input name="name" placeholder="Name" value={salesForm.name} onChange={handleSalesChange}
+                  className="border-b w-full text-sm bg-transparent p-1" required />
+
+                <label className="block text-sm font-medium text-gray-700">Email</label>
+                <input name="email" placeholder="Email" type="email" value={salesForm.email} onChange={handleSalesChange}
+                  className="border-b w-full text-sm bg-transparent p-1" required />
+
+                <label className="block text-sm font-medium text-gray-700">Phone No.</label>
+                <input name="phone" placeholder="Phone" value={salesForm.phone} onChange={handleSalesChange}
+                  className="border-b w-full text-sm bg-transparent p-1" />
+
+                <label className="block text-sm font-medium text-gray-700">Message</label>
+                <textarea name="message" placeholder="Message" value={salesForm.message} onChange={handleSalesChange}
+                  rows={5} className="border-b w-full text-sm bg-transparent p-1"></textarea>
+
+                <button type="submit" className="cursor-pointer w-full bg-gray-900 hover:bg-white hover:text-black border text-white py-2 rounded-md">
+                  Submit
+                </button>
+              </form>
+            )}
+
+            {/* CAREER FORM */}
+            {activeTab === "career" && (
+              <form className="space-y-4" onSubmit={handleCareerSubmit}>
+                <label className="block text-sm font-medium text-gray-700">Name</label>
+                <input name="name" placeholder="Name" value={careerForm.name} onChange={handleCareerChange}
+                  className="border-b w-full bg-transparent text-sm p-1" required />
+
+                <label className="block text-sm font-medium text-gray-700">Email</label>
+                <input name="email" type="email" placeholder="Email" value={careerForm.email}
+                  onChange={handleCareerChange} className="border-b w-full bg-transparent text-sm p-1" required />
+
+                <label className="block text-sm font-medium text-gray-700">Phone No.</label>
+                <input name="phone" placeholder="Phone" value={careerForm.phone}
+                  onChange={handleCareerChange} className="border-b w-full bg-transparent text-sm p-1" />
+
+                <label className="block text-sm font-medium text-gray-700">Address</label>
+                <input name="address" placeholder="Address" value={careerForm.address}
+                  onChange={handleCareerChange} className="border-b w-full bg-transparent text-sm p-1" />
+
+                <label className="block text-sm font-medium text-gray-700">Upload Your CV</label>
+                <input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.csv" onChange={handleCareerFile}
+                  className="w-full border border-gray-300 rounded-md px-3 text-sm py-2 required" />
+
+                <button type="submit" className="cursor-pointer w-full bg-gray-900 text-white hover:bg-white hover:text-black border py-2 rounded-md">
+                  Submit
+                </button>
+              </form>
+            )}
+
+          </div>
+        </div>
       </div>
     </section>
   );
