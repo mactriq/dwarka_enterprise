@@ -47,7 +47,7 @@ export async function POST(request: Request) {
     // Send email via Resend
     await resend.emails.send({
       from: "Your Website <onboarding@resend.dev>",
-      to: "harshitchejara29@gmail.com",
+      to: "harshit.chejara@mactriq.com",
       subject: `New ${data.formType} Submission`,
       text: emailText,
     });
