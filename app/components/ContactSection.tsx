@@ -22,6 +22,7 @@ export default function ContactSection() {
     address: "",
   });
 
+
   const handleSalesChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setSalesForm({ ...salesForm, [e.target.name]: e.target.value });
