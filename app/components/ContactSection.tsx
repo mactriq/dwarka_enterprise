@@ -22,7 +22,6 @@ export default function ContactSection() {
     address: "",
   });
 
-
   const handleSalesChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setSalesForm({ ...salesForm, [e.target.name]: e.target.value });
@@ -192,7 +191,7 @@ export default function ContactSection() {
                   rows={4}
                 />
 
-                <button className="cursor-pointer w-full bg-gray-900 text-white py-2 rounded-md">
+                <button className="cursor-pointer w-full bg-gray-900 hover:bg-white hover:text-black border text-white py-2 rounded-md">
                   Submit
                 </button>
               </form>
@@ -245,7 +244,7 @@ export default function ContactSection() {
                   dwarkaenterprise16@gmail.com
                 </Link>
 
-                <button className="mt-6 cursor-pointer w-full bg-gray-900 text-white py-2 rounded-md">
+                <button className="mt-6 cursor-pointer w-full bg-gray-900 hover:bg-white hover:text-black border text-white py-2 rounded-md">
                   Submit
                 </button>
               </form>
