@@ -66,9 +66,12 @@ const Footer = () => {
 
                 {/* Phone numbers */}
                 <li className="flex items-center gap-2">
-                  <FaPhoneAlt className="text-white/80" />
+                  <FaPhoneAlt className="text-white/80"/>
                   <Link href="tel:+919376639399" className="hover:text-gray-300">
-                    +91 9376639399, +91 6351292442
+                    +91 9376639399,
+                  </Link>
+                  <Link href="tel:+916351292442" className="hover:text-gray-300">
+                    +91 6351292442
                   </Link>
                 </li>
 

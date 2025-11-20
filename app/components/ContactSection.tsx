@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import contactData from "../data/contactData.json";
 import Link from "next/link";
 
 export default function ContactSection() {
   const { section } = contactData;
-  const [activeTab, setActiveTab] = useState<"sales" | "career">("sales");
+  const [activeTab, setActiveTab] = useState("sales");
   const [showPopup, setShowPopup] = useState(false);
 
   const [salesForm, setSalesForm] = useState({
@@ -20,95 +20,96 @@ export default function ContactSection() {
     email: "",
     phone: "",
     address: "",
-    cv: null as File | null,
   });
 
-  const handleSalesChange = (e: any) => {
-    setSalesForm({ ...salesForm, [e.target.name]: e.target.value });
-  };
+  const handleSalesChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => setSalesForm({ ...salesForm, [e.target.name]: e.target.value });
 
-  const handleCareerChange = (e: any) => {
-    setCareerForm({ ...careerForm, [e.target.name]: e.target.value });
-  };
+  const handleCareerChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => setCareerForm({ ...careerForm, [e.target.name]: e.target.value });
 
-  const handleCareerFile = (e: any) => {
-    setCareerForm({
-      ...careerForm,
-      cv: e.target.files ? e.target.files[0] : null,
-    });
-  };
-
-  const triggerSuccessPopup = () => {
+  const showSuccess = () => {
     setShowPopup(true);
     setTimeout(() => setShowPopup(false), 3000);
   };
 
-  // ⭐ SALES FORM SUBMIT
-  const handleSalesSubmit = async (e: any) => {
-    e.preventDefault();
+  const saveSalesToSheet = async (data: any) => {
+    try {
+      const res = await fetch("/api/save-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    const res = await fetch("/api/send-email", {
-      method: "POST",
-      body: JSON.stringify({
-        formType: "Sales Inquiry",
-        ...salesForm,
-      }),
-    });
+      const result = await res.json();
+      if (!result.success) throw new Error(result.error);
 
-    if (res.ok) {
-      triggerSuccessPopup();
-      setSalesForm({ name: "", email: "", phone: "", message: "" });
-    } else {
-      alert("Failed to send email.");
+      showSuccess();
+      return true;
+    } catch {
+      alert("Failed to save form");
+      return false;
     }
   };
 
-  // ⭐ CAREER FORM SUBMIT (WITH ATTACHMENT)
-  const handleCareerSubmit = async (e: any) => {
-    e.preventDefault();
+  const saveCareerToSheet = async () => {
+    try {
+      const res = await fetch("/api/save-career", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "Career Application",
+          ...careerForm,
+        }),
+      });
 
-    const formData = new FormData();
-    formData.append("formType", "Career Application");
-    formData.append("name", careerForm.name);
-    formData.append("email", careerForm.email);
-    formData.append("phone", careerForm.phone);
-    formData.append("address", careerForm.address);
+      const result = await res.json();
+      if (!result.success) throw new Error(result.error);
 
-    if (careerForm.cv) {
-      formData.append("cv", careerForm.cv);
+      showSuccess();
+      return true;
+    } catch {
+      alert("Failed to submit career form");
+      return false;
     }
+  };
 
-    const res = await fetch("/api/send-email", {
-      method: "POST",
-      body: formData,
+  const handleSalesSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    const success = await saveSalesToSheet({
+      formType: "Sales Inquiry",
+      ...salesForm,
     });
+    if (success) {
+      setSalesForm({ name: "", email: "", phone: "", message: "" });
+    }
+  };
 
-    if (res.ok) {
-      triggerSuccessPopup();
+  const handleCareerSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    const success = await saveCareerToSheet();
+
+    if (success) {
       setCareerForm({
         name: "",
         email: "",
         phone: "",
         address: "",
-        cv: null,
       });
-    } else {
-      alert("Failed to send email.");
     }
   };
 
   return (
     <section className="w-full lg:py-20 py-6 px-6 lg:px-20 relative">
-
       {showPopup && (
         <div className="fixed top-10 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-md shadow-lg z-50">
-          Your data has been submitted successfully.
+          Your form has been submitted successfully!
         </div>
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16">
-
-        {/* LEFT SECTION */}
         <div>
           <h3 className="lg:text-6xl text-4xl font-semibold text-gray-900 mb-6">
             {section.heading.text.split(section.heading.highlight)[0]}
@@ -123,18 +124,15 @@ export default function ContactSection() {
           />
         </div>
 
-        {/* RIGHT FORM AREA */}
         <div
           className="rounded-2xl bg-cover bg-center lg:p-24 p-4"
           style={{ backgroundImage: `url(${section.rightBackground})` }}
         >
           <div className="bg-white rounded-xl lg:p-6 p-4">
-
-            {/* TABS */}
             <div className="flex gap-3 mb-10">
               <button
                 onClick={() => setActiveTab("sales")}
-                className={`px-4 py-2 rounded-md text-sm font-medium ${
+                className={`cursor-pointer px-4 py-2 rounded-md text-sm font-medium ${
                   activeTab === "sales"
                     ? "bg-gray-900 text-white"
                     : "border border-gray-400 text-gray-700"
@@ -145,7 +143,7 @@ export default function ContactSection() {
 
               <button
                 onClick={() => setActiveTab("career")}
-                className={`px-4 py-2 rounded-md text-sm font-medium ${
+                className={`cursor-pointer px-4 py-2 rounded-md text-sm font-medium ${
                   activeTab === "career"
                     ? "bg-gray-900 text-white"
                     : "border border-gray-400 text-gray-700"
@@ -155,67 +153,102 @@ export default function ContactSection() {
               </button>
             </div>
 
-            {/* SALES FORM */}
             {activeTab === "sales" && (
-              <form className="space-y-4" onSubmit={handleSalesSubmit}>
-                <label className="block text-sm font-medium text-gray-700">Name</label>
-                <input name="name" placeholder="Name" value={salesForm.name} onChange={handleSalesChange}
-                  className="border-b w-full text-sm bg-transparent p-1" required />
+              <form className="space-y-6" onSubmit={handleSalesSubmit}>
+                <label>Name</label>
+                <input
+                  name="name"
+                  value={salesForm.name}
+                  onChange={handleSalesChange}
+                  className="border-b w-full p-1"
+                  required
+                />
 
-                <label className="block text-sm font-medium text-gray-700">Email</label>
-                <input name="email" placeholder="Email" type="email" value={salesForm.email} onChange={handleSalesChange}
-                  className="border-b w-full text-sm bg-transparent p-1" required />
+                <label>Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  value={salesForm.email}
+                  onChange={handleSalesChange}
+                  className="border-b w-full p-1"
+                  required
+                />
 
-                <label className="block text-sm font-medium text-gray-700">Phone No.</label>
-                <input name="phone" placeholder="Phone" value={salesForm.phone} onChange={handleSalesChange}
-                  className="border-b w-full text-sm bg-transparent p-1" />
+                <label>Phone</label>
+                <input
+                  name="phone"
+                  value={salesForm.phone}
+                  onChange={handleSalesChange}
+                  className="border-b w-full p-1"
+                />
 
-                <label className="block text-sm font-medium text-gray-700">Message</label>
-                <textarea name="message" placeholder="Message" value={salesForm.message} onChange={handleSalesChange}
-                  rows={5} className="border-b w-full text-sm bg-transparent p-1"></textarea>
+                <label>Message</label>
+                <textarea
+                  name="message"
+                  value={salesForm.message}
+                  onChange={handleSalesChange}
+                  className="border-b w-full p-1"
+                  rows={4}
+                />
 
-                <button type="submit" className="cursor-pointer w-full bg-gray-900 hover:bg-white hover:text-black border text-white py-2 rounded-md">
+                <button className="cursor-pointer w-full bg-gray-900 text-white py-2 rounded-md">
                   Submit
                 </button>
               </form>
             )}
 
-            {/* CAREER FORM */}
             {activeTab === "career" && (
-              <form className="space-y-4" onSubmit={handleCareerSubmit}>
-                <label className="block text-sm font-medium text-gray-700">Name</label>
-                <input name="name" placeholder="Name" value={careerForm.name} onChange={handleCareerChange}
-                  className="border-b w-full bg-transparent text-sm p-1" required />
+              <form className="space-y-6" onSubmit={handleCareerSubmit}>
+                <label>Name</label>
+                <input
+                  name="name"
+                  value={careerForm.name}
+                  onChange={handleCareerChange}
+                  className="border-b w-full p-1"
+                  required
+                />
 
-                <label className="block text-sm font-medium text-gray-700">Email</label>
-                <input name="email" type="email" placeholder="Email" value={careerForm.email}
-                  onChange={handleCareerChange} className="border-b w-full bg-transparent text-sm p-1" required />
+                <label>Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  value={careerForm.email}
+                  onChange={handleCareerChange}
+                  className="border-b w-full p-1"
+                  required
+                />
 
-                <label className="block text-sm font-medium text-gray-700">Phone No.</label>
-                <input name="phone" placeholder="Phone" value={careerForm.phone}
-                  onChange={handleCareerChange} className="border-b w-full bg-transparent text-sm p-1" />
+                <label>Phone</label>
+                <input
+                  name="phone"
+                  value={careerForm.phone}
+                  onChange={handleCareerChange}
+                  className="border-b w-full p-1"
+                />
 
-                <label className="block text-sm font-medium text-gray-700">Address</label>
-                <input name="address" placeholder="Address" value={careerForm.address}
-                  onChange={handleCareerChange} className="border-b w-full bg-transparent text-sm p-1" />
+                <label>Address</label>
+                <textarea
+                  name="address"
+                  value={careerForm.address}
+                  onChange={handleCareerChange}
+                  rows={1}
+                  className="border-b w-full p-1"
+                />
 
-                <label className="block text-sm font-medium text-gray-700">Upload Your CV On:
-                  <Link
-                    href="mailto:dwarkaenterprise16@gmail.com"
-                    className="hover:text-gray-400 underline ml-2"
-                  >
-                    dwarkaenterprise16@gmail.com
-                  </Link>
-                  </label>
-                {/* <input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.csv" onChange={handleCareerFile}
-                  className="w-full border border-gray-300 rounded-md px-3 text-sm py-2 required" /> */}
+                <label>Send Your CV To:</label>
 
-                <button type="submit" className="cursor-pointer w-full bg-gray-900 text-white hover:bg-white hover:text-black border py-2 rounded-md">
+                <Link
+                  href="mailto:dwarkaenterprise16@gmail.com"
+                  className="underline hover:text-gray-300"
+                >
+                  dwarkaenterprise16@gmail.com
+                </Link>
+
+                <button className="mt-6 cursor-pointer w-full bg-gray-900 text-white py-2 rounded-md">
                   Submit
                 </button>
               </form>
             )}
-
           </div>
         </div>
       </div>
