@@ -67,7 +67,7 @@ const OurProducts = () => {
 
             {/* Text + Icon */}
             <div className="absolute bottom-2 left-3 right-3 flex justify-between items-center">
-              <h3 className="bg-white p-2 rounded-2xl font-semibold text-md leading-snug max-w-[70%]">
+              <h3 className="bg-white text-[#000000] p-2 rounded-2xl font-semibold text-md leading-snug max-w-[70%]">
                 {product.name}
               </h3>
 

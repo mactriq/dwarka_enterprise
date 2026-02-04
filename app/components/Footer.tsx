@@ -7,7 +7,7 @@ import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 const Footer = () => {
   return (
     <>
-    <footer className="bg-[#040503] text-white py-18 px-6 md:px-20">
+    <footer className="bg-[#16222E] text-white py-18 px-6 md:px-20">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-12 gap-10">
         {/* Left Section - Logo + Text */}
         <div className="space-y-4">
@@ -79,10 +79,10 @@ const Footer = () => {
                 <li className="flex items-center gap-2">
                   <MdEmail className="text-white/80" />
                   <Link
-                    href="mailto:dwarkaenterprise16@gmail.com"
+                    href="mailto:info.dwarkaenterprise@gmail.com"
                     className="hover:text-gray-300"
                   >
-                    dwarkaenterprise16@gmail.com
+                    info.dwarkaenterprise@gmail.com
                   </Link>
                 </li>
 
@@ -105,7 +105,7 @@ const Footer = () => {
 
       </div>
     </footer>
-    <p className="bg-[#16222E] text-center text-sm text-gray-400 py-8">
+    <p className="bg-[#16222E] border-t border-gray-400 text-center text-sm text-gray-400 py-8">
         © 2025 Dwarka Enterprises. All Rights Reserved.
     </p>
     </>

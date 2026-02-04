@@ -6,7 +6,7 @@ export default function ServiceIconsBar() {
   const { services } = servicesData;
 
   return (
-    <section className="w-full px-6 lg:px-20">
+    <section className="w-full bg-[#FFFFFF] px-6 lg:px-20">
       <div className="border-t border-b border-[#16222E] py-4">
 
         {/* ----- DESKTOP VIEW ----- */}

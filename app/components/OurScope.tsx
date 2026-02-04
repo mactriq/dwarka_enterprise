@@ -61,7 +61,7 @@ const OurScope = () => {
                 className={`overflow-hidden transition-all duration-300 ease-in-out 
                 ${activeIndex === index ? "max-h-40 opacity-100 mt-3" : "max-h-0 opacity-0"}`}
               >
-                <p className="text-sm pl-10 leading-relaxed">
+                <p className="text-sm text-[#000000] pl-10 leading-relaxed">
                   {item.description}
                 </p>
               </div>

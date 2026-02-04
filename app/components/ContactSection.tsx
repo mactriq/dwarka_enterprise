@@ -102,7 +102,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="w-full lg:py-20 py-6 px-6 lg:px-20 relative">
+    <section className="w-full bg-[#FFFFFF] lg:py-20 py-6 px-6 lg:px-20 relative">
       {showPopup && (
         <div className="fixed top-10 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-md shadow-lg z-50">
           Your form has been submitted successfully!
@@ -154,7 +154,7 @@ export default function ContactSection() {
             </div>
 
             {activeTab === "sales" && (
-              <form className="space-y-6" onSubmit={handleSalesSubmit}>
+              <form className="space-y-6 text-[#000000]" onSubmit={handleSalesSubmit}>
                 <label>Name</label>
                 <input
                   name="name"
@@ -198,7 +198,7 @@ export default function ContactSection() {
             )}
 
             {activeTab === "career" && (
-              <form className="space-y-6" onSubmit={handleCareerSubmit}>
+              <form className="space-y-6 text-[#000000]" onSubmit={handleCareerSubmit}>
                 <label>Name</label>
                 <input
                   name="name"
@@ -235,13 +235,13 @@ export default function ContactSection() {
                   className="border-b w-full p-1"
                 />
 
-                <label>Send Your CV To:</label>
+                <label>Send Your CV To: </label>
 
                 <Link
-                  href="mailto:dwarkaenterprise16@gmail.com"
-                  className="underline hover:text-gray-300"
+                  href="mailto:info.dwarkaenterprise@gmail.com"
+                  className="underline hover:text-gray-400"
                 >
-                  dwarkaenterprise16@gmail.com
+                  info.dwarkaenterprise@gmail.com
                 </Link>
 
                 <button className="mt-6 cursor-pointer w-full bg-gray-900 hover:bg-white hover:text-black border text-white py-2 rounded-md">

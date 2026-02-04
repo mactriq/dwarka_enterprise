@@ -27,7 +27,7 @@ const ProductsSection = () => {
   });
 
   return (
-    <section className="px-6 lg:px-20 lg:py-20 py-6">
+    <section className="px-6 bg-[#FFFFFF] lg:px-20 lg:py-20 py-6">
       {/* ---------------- FILTERS ---------------- */}
       <div className="flex flex-wrap gap-4 items-center lg:mb-10 mb-6">
         
@@ -36,9 +36,9 @@ const ProductsSection = () => {
           className="border px-2 py-2 rounded-lg"
           onChange={(e) => setSelectedBrand(e.target.value)}
         >
-          <option value="All">All</option>
+          <option value="All" className="text-[#000000]">All</option>
           {brands.map((brand: string, i: number) => (
-            <option key={i} value={brand}>
+            <option key={i} value={brand} className="text-[#000000]">
               {brand}
             </option>
           ))}
@@ -49,9 +49,9 @@ const ProductsSection = () => {
           className="border px-2 py-2 rounded-lg"
           onChange={(e) => setSelectedCategory(e.target.value)}
         >
-          <option value="All">All</option>
+          <option value="All" className="text-[#000000]">All</option>
           {categories.map((cat: string, i: number) => (
-            <option key={i} value={cat}>
+            <option key={i} value={cat} className="text-[#000000]">
               {cat}
             </option>
           ))}

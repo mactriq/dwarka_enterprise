@@ -39,12 +39,12 @@ export default function RootLayout({
         <a
           href="/about/Dwarka Enterprise Brochure.pdf"
           download
-          className="fixed bottom-6 left-6 md:bottom-10 md:left-10 z-50 
+          className="fixed bottom-6 left-6 md:bottom-14 md:left-14 z-50 
                     flex items-center gap-3 bg-white text-[#16222E] 
                     px-2 py-2 rounded-full shadow-lg 
                     hover:shadow-xl transition-all"
         >
-          <span className="font-medium">Company Brochure</span>
+          <span className="font-medium px-2">Company Brochure</span>
 
           {/* Circular Download Icon */}
           <div className="w-9 h-9 flex items-center justify-center rounded-full bg-[#16222E]">
@@ -57,7 +57,7 @@ export default function RootLayout({
           href="https://wa.me/919376639399"
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-transform hover:scale-110"
+          className="fixed bottom-6 right-6 md:bottom-14 md:right-14 z-50 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-transform hover:scale-110"
         >
           <FaWhatsapp className="text-4xl" />
         </a>

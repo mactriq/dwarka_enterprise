@@ -44,7 +44,7 @@ export default function ProjectGallery() {
   };
 
   return (
-    <section className="lg:py-18 py-6 px-6 lg:px-20">
+    <section className="lg:py-18 bg-[#FFFFFF] py-6 px-6 lg:px-20">
       <div>
         {/* FILTER BUTTONS */}
         <div className="flex flex-wrap justify-start gap-3 lg:mb-18 mb-6">

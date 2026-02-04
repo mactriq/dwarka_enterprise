@@ -6,7 +6,7 @@ export default function Branches() {
   const { branches } = branchesData;
 
   return (
-    <section className="w-full bg-[#F7F6F2] lg:py-16 py-6 px-6 lg:px-20 mb-20">
+    <section className="w-full bg-[#F7F6F2] lg:py-16 py-6 px-6 lg:px-20">
       <div className="mx-auto">
         <div className="flex flex-col lg:flex-row lg:gap-16 gap-6 items-stretch justify-center">
           {branches.map((branch, index) => (

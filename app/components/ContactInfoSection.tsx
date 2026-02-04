@@ -13,7 +13,7 @@ export default function ContactInfoSection() {
   const { mapSrc, info } = contactData;
 
   return (
-    <section className="w-full px-6 lg:px-20 py-20">
+    <section className="w-full bg-[#FFFFFF] px-6 lg:px-20 py-20">
       <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20">
 
         {/* Map */}
