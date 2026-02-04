@@ -65,7 +65,7 @@ export default function SiteVideos() {
         {/* LEFT ARROW */}
         <button
           onClick={prev}
-          className="absolute -left-6 md:-left-10 z-10 p-2 rounded-full hover:scale-110 hover:bg-gray-100 transition"
+          className="absolute -left-6 md:-left-10 z-10 p-2 rounded-full hover:scale-110 shadow-md bg-gray-100 transition"
         >
           <ChevronLeft size={32} strokeWidth={1.5} />
         </button>
@@ -98,7 +98,7 @@ export default function SiteVideos() {
         {/* RIGHT ARROW */}
         <button
           onClick={next}
-          className="absolute -right-6 md:-right-10 z-10 p-2 rounded-full hover:scale-110 hover:bg-gray-100 transition"
+          className="absolute -right-6 md:-right-10 z-10 p-2 rounded-full hover:scale-110 shadow-md bg-gray-100 transition"
         >
           <ChevronRight size={32} strokeWidth={1.5} />
         </button>

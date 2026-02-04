@@ -26,7 +26,7 @@ const WhyDwarka = () => {
   };
 
   return (
-    <section className="px-6 lg:py-14 py-6">
+    <section className="bg-[#FFFFFF] px-6 lg:py-14 py-6">
       <div className="bg-[#0C1622] text-white rounded-3xl px-6 md:px-10 lg:px-14 py-16 relative overflow-hidden">
 
         {/* Header */}
