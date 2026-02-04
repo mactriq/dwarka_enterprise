@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
           {/* LEFT ARROW */}
           <button
             onClick={prev}
-            className="absolute -left-6 md:-left-8 z-10 p-2 rounded-full hover:bg-gray-100 text-black hover:scale-110 transition"
+            className="absolute -left-6 md:-left-8 z-10 p-2 rounded-full shadow-md bg-gray-100 text-black hover:scale-110 transition"
           >
             <ChevronLeft size={32} strokeWidth={1.5} />
           </button>
@@ -104,7 +104,7 @@ export default function TestimonialsSection() {
           {/* RIGHT ARROW */}
           <button
             onClick={next}
-            className="absolute -right-6 md:-right-8 z-10 p-2 rounded-full hover:bg-gray-100 text-black hover:scale-110 transition"
+            className="absolute -right-6 md:-right-8 z-10 p-2 rounded-full shadow-md bg-gray-100 text-black hover:scale-110 transition"
           >
             <ChevronRight size={32} strokeWidth={1.5} />
           </button>

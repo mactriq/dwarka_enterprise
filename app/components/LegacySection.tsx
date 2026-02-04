@@ -5,8 +5,8 @@ import legacyData from "../data/legacyData.json";
 
 export default function LegacySection() {
   return (
-    <section className="px-6 bg-[#FFFFFF]">
-      <div className="relative bg-[#FFFFFF] text-white rounded-2xl overflow-hidden my-14 sm:my-20">
+    <section className="px-6 py-14 sm:py-20 bg-[#FFFFFF]">
+      <div className="relative bg-[#FFFFFF] text-white rounded-2xl overflow-hidden">
 
         {/* Background Image */}
         <div className="absolute inset-0">
