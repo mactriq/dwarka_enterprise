@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="bg-[#16222E] text-white py-18 px-6 md:px-20">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-12 gap-10">
         {/* Left Section - Logo + Text */}
-        <div className="space-y-4">
+        <div className="space-y-2">
           <Link href="/" className="flex items-center">
             <Image
               src="/logo2.png"
@@ -20,7 +20,7 @@ const Footer = () => {
               className="object-contain"
             />
           </Link>
-          <p className="max-w-sm text-sm leading-relaxed">
+          <p className="max-w-sm leading-relaxed">
             Providing reliable HVAC solutions with excellence and commitment, every step of the way.
           </p>
         </div>
@@ -29,8 +29,8 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:justify-end lg:gap-20 gap-10">
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-1 text-sm">
+            <h3 className="font-semibold mb-4 text-lg">Quick Links</h3>
+            <ul className="space-y-1">
               <li>
                 <Link href="/about" className="hover:text-gray-300">
                   About Us
@@ -61,8 +61,8 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold mb-4">Contacts</h3>
-              <ul className="space-y-2 text-sm">
+            <h3 className="font-semibold mb-4 text-lg">Contacts</h3>
+              <ul className="space-y-2">
 
                 {/* Phone numbers */}
                 <li className="flex items-center gap-2">
