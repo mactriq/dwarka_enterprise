@@ -16,7 +16,7 @@ export default function FoundersNote() {
         {founderData.leaders.map((leader, index) => (
           <div
             key={index}
-            className="bg-[#F7F5EF] rounded-2xl p-6 md:p-10 flex flex-col items-center text-left"
+            className="bg-[#F7F6F2] rounded-2xl p-6 md:p-10 flex flex-col items-center text-left"
           >
             {/* Image */}
             <div className="w-50 h-60 rounded-2xl overflow-hidden mb-6">
