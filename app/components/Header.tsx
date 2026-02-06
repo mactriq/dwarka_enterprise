@@ -5,9 +5,13 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaPhoneAlt } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
 
   return (
     <header className="sticky top-0 z-50 bg-[#16222E] shadow-md">
@@ -24,26 +28,65 @@ const Header = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="text-white hidden md:flex items-center justify-center space-x-8">
-          <Link href="/about" className="hover:text-gray-400 transition">
+        <div className="hidden md:flex items-center justify-center space-x-8">
+          <Link
+            href="/about"
+            className={`transition ${
+              isActive("/about")
+                ? "text-[#AA2022] font-semibold"
+                : "text-white hover:text-gray-400"
+            }`}
+          >
             About Us
           </Link>
-          <Link href="/product" className="hover:text-gray-400 transition">
+
+          <Link
+            href="/product"
+            className={`transition ${
+              isActive("/product")
+                ? "text-[#AA2022] font-semibold"
+                : "text-white hover:text-gray-400"
+            }`}
+          >
             Products
           </Link>
-          <Link href="/project" className="hover:text-gray-400 transition">
+
+          <Link
+            href="/project"
+            className={`transition ${
+              isActive("/project")
+                ? "text-[#AA2022] font-semibold"
+                : "text-white hover:text-gray-400"
+            }`}
+          >
             Projects
           </Link>
-          <Link href="/gallery" className="hover:text-gray-400 transition">
+
+          <Link
+            href="/gallery"
+            className={`transition ${
+              isActive("/gallery")
+                ? "text-[#AA2022] font-semibold"
+                : "text-white hover:text-gray-400"
+            }`}
+          >
             Gallery
           </Link>
-          <Link href="/contact" className="hover:text-gray-400 transition">
+
+          <Link
+            href="/contact"
+            className={`transition ${
+              isActive("/contact")
+                ? "text-[#AA2022] font-semibold"
+                : "text-white hover:text-gray-400"
+            }`}
+          >
             Contact Us
           </Link>
 
           <a
             href="tel:+919376639399"
-            className="flex items-center gap-2 cursor-pointer text-white border border-white font-medium px-4 py-3 rounded-md hover:border-[#AA2022] hover:text-white hover:bg-[#AA2022] transition"
+            className="flex items-center gap-2 cursor-pointer text-white border border-white font-medium px-4 py-3 rounded-md hover:border-[#AA2022] hover:bg-[#AA2022] transition"
           >
             <FaPhoneAlt className="text-lg" />
             <span>+91 9376639399</span>
@@ -52,7 +95,6 @@ const Header = () => {
 
         {/* Mobile Header */}
         <div className="md:hidden flex items-center justify-between w-full">
-          {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/logo1.png"
@@ -63,7 +105,6 @@ const Header = () => {
             />
           </Link>
 
-          {/* Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="cursor-pointer text-white focus:outline-none"
@@ -78,7 +119,11 @@ const Header = () => {
         <div className="md:hidden bg-[#f9f7f2] px-6 py-6 space-y-4 flex flex-col items-start">
           <Link
             href="/about"
-            className="text-black hover:text-gray-600 transition"
+            className={`transition ${
+              isActive("/about")
+                ? "text-[#AA2022] font-semibold"
+                : "text-black hover:text-gray-600"
+            }`}
             onClick={() => setIsOpen(false)}
           >
             About Us
@@ -86,7 +131,11 @@ const Header = () => {
 
           <Link
             href="/product"
-            className="text-black hover:text-gray-600 transition"
+            className={`transition ${
+              isActive("/product")
+                ? "text-[#AA2022] font-semibold"
+                : "text-black hover:text-gray-600"
+            }`}
             onClick={() => setIsOpen(false)}
           >
             Products
@@ -94,7 +143,11 @@ const Header = () => {
 
           <Link
             href="/project"
-            className="text-black hover:text-gray-600 transition"
+            className={`transition ${
+              isActive("/project")
+                ? "text-[#AA2022] font-semibold"
+                : "text-black hover:text-gray-600"
+            }`}
             onClick={() => setIsOpen(false)}
           >
             Projects
@@ -102,7 +155,11 @@ const Header = () => {
 
           <Link
             href="/gallery"
-            className="text-black hover:text-gray-600 transition"
+            className={`transition ${
+              isActive("/gallery")
+                ? "text-[#AA2022] font-semibold"
+                : "text-black hover:text-gray-600"
+            }`}
             onClick={() => setIsOpen(false)}
           >
             Gallery
@@ -110,7 +167,11 @@ const Header = () => {
 
           <Link
             href="/contact"
-            className="text-black hover:text-gray-600 transition"
+            className={`transition ${
+              isActive("/contact")
+                ? "text-[#AA2022] font-semibold"
+                : "text-black hover:text-gray-600"
+            }`}
             onClick={() => setIsOpen(false)}
           >
             Contact Us
@@ -118,7 +179,7 @@ const Header = () => {
 
           <a
             href="tel:+919376639399"
-            className="flex items-center gap-2 cursor-pointer border border-black text-gray-600 hover:text-white hover:bg-[#AA2022] font-medium px-4 py-3 rounded-md hover:bg-[#8a1b1c] transition w-auto"
+            className="flex items-center gap-2 border border-black text-gray-600 hover:text-white hover:bg-[#AA2022] font-medium px-4 py-3 rounded-md transition"
             onClick={() => setIsOpen(false)}
           >
             <FaPhoneAlt className="text-lg" />

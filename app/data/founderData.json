@@ -1,19 +1,24 @@
 {
-  "title": "Founder’s Note",
+  "title": "Founders note",
   "leaders": [
     {
-      "founderimage": "/about/founder.png",
-      "name1": "Jagdishrai Jain",
-      "designation1": "Founder, Dwarka Enterprise",
-      "directorimage": "/about/Ankit_Jain.jpeg",
-      "name2": "Ankit Jain",
-      "designation2": "Managing Director",
-      "paragraphs": [
-        "Namaste! As the founder of Dwarka Enterprise, I am privileged to lead a team passionate about delivering exceptional heating, ventilation, and air conditioning (HVAC) solutions across India. At Dwarka Enterprise, we understand that comfort isn’t just about temperature – it’s about creating healthier, more productive environments for homes and businesses.",
-        "With years of experience and a commitment to quality, we’ve earned the trust of countless clients. Our team of skilled professionals works tirelessly to provide tailored HVAC solutions, whether it’s installing cutting-edge systems, conducting preventive maintenance, or ensuring swift repairs. We believe in transparency, reliability, and putting customers first.",
-        "In a country like India, where climates vary widely, efficient HVAC systems are essential for comfort and well-being. We're dedicated to offering energy-efficient technologies and sustainable practices that help reduce environmental impact while maximizing performance.",
-        "Thank you for choosing Dwarka Enterprise. We're honored to serve you and look forward to continuing our journey together."
+      "image": "/about/founder.png",
+      "name": "Jagdishrai Jain",
+      "designation": "Founder",
+      "content": [
+        "Namaste! As the Founder of  Dwarka Enterprise, I am privileged to lead a team that is passionate about delivering exceptional heating, ventilation, and air conditioning (HVAC) solutions across India.",
+        "We understand that comfort isn’t just about temperature—it’s about creating healthier, more productive environments for homes and businesses. Our solutions are designed to deliver reliable performance while enhancing overall well-being."
+      ]
+    },
+    {
+      "image": "/about/Ankit_Jain.jpeg",
+      "name": "Ankit Jain",
+      "designation": "Managing Director",
+      "content": [
+        "Namaste! As the Managing Director of Dwarka Enterprise, with years of experience and a commitment to quality, we’ve earned the trust of many clients. Our skilled team delivers tailored HVAC solutions—from installation and preventive maintenance to quick, reliable repairs—with a focus on transparency and customer satisfaction.",
+        "In India’s diverse climate, we provide energy-efficient and sustainable HVAC systems that maximize comfort while minimizing environmental impact."
       ]
     }
-  ]
+  ],
+  "footerNote": "Thank you for choosing Dwarka Enterprise. We're honored to serve you and look forward to continuing our journey together."
 }

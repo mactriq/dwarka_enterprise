@@ -4,31 +4,49 @@
   "items": [
     {
       "quote": "Excellent HVAC service that keeps the air quality good and the system working reliably in our healthcare facility.",
-      "name": "AMC hospital",
+      "name": "AMC Hospital",
       "location": "Surat",
       "image": "/projects/hospitals/hospital1.jpg"
     },
     {
-      "quote": "Great HVAC service that keeps our environment comfortable and safe, with quick support whenever needed.",
-      "name": "Galaxy hospital",
-      "location": "Bardoli",
-      "image": "/projects/hospitals/hospital2.jpg"
+      "quote": "The HVAC solution ensures the indoor areas of the stadium stay cool and well-ventilated.",
+      "name": "Jawahar Lal Nehru Cricket Stadium",
+      "location": "Delhi",
+      "image": "/projects/corporate/corporate6.png"
     },
     {
-      "quote": "Reliable HVAC service that keeps our hospital comfortable and running smoothly at all times.",
-      "name": "Shah hospital",
-      "location": "Karnal",
-      "image": "/projects/hospitals/hospital3.png"
+      "quote": "Great HVAC service that keeps our environment comfortable and safe, with quick support whenever needed.",
+      "name": "Farmson Basic Drugs pvt. ltd.",
+      "location": "Saykha",
+      "image": "/projects/industries/industry1.jpg"
+    },
+    {
+      "quote": "The HVAC system is highly reliable and works flawlessly every day. Its performance and efficiency make it a top-notch solution for the office.",
+      "name": "BPCL",
+      "location": "Beena, Madhya Pradesh",
+      "image": "/projects/corporate/corporate10.png"
+    },
+    {
+      "quote": "Reliable HVAC service that keeps our hotel comfortable and running smoothly at all times.",
+      "name": "Paradise Hotel",
+      "location": "Ankleshwar",
+      "image": "/projects/other/other8.png"
     },
     {
       "quote": "Professional HVAC maintenance team ensuring consistent performance and reliability.",
-      "name": "Kilkari hospital",
+      "name": "Delhi high court",
+      "location": "Delhi",
+      "image": "/projects/corporate/corporate1.jpg"
+    },
+    {
+      "quote": "The HVAC system keeps the restaurant cool and comfortable. Guests can enjoy their meals in a pleasant environment.",
+      "name": "Karanj Restaurant",
       "location": "Surat",
-      "image": "/projects/hospitals/hospital8.png"
+      "image": "/projects/other/other10.png"
     },
     {
       "quote": "Dwarka Enterprise provided us with a reliable, efficient HVAC solution that greatly improved comfort across Vidhyadeep University.",
-      "name": "Vidhyadeep university",
+      "name": "Vidhyadeep University",
       "location": "Kim",
       "image": "/projects/education/education1.png"
     }

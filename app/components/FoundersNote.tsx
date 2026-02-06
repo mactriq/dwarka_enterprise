@@ -7,75 +7,55 @@ export default function FoundersNote() {
   return (
     <section className="bg-white py-20 px-6 lg:px-20">
       {/* Section Title */}
-      <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-16">
+      <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
         {founderData.title}
       </h2>
 
-      <div className="space-y-20">
+      {/* Cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
         {founderData.leaders.map((leader, index) => (
           <div
             key={index}
-            className="flex flex-col lg:flex-row gap-12 items-start"
+            className="bg-[#F7F5EF] rounded-2xl p-6 md:p-10 flex flex-col items-center text-left"
           >
-            {/* Left: Leadership Images */}
-            <div className="w-full lg:w-2/5 flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-
-                {/* Founder */}
-                <div className="flex flex-col items-center text-center">
-                  <div className="rounded-2xl overflow-hidden w-full h-full">
-                    <Image
-                      src={leader.founderimage}
-                      alt={leader.name1}
-                      width={300}
-                      height={300}
-                      className="w-full h-full object-cover"
-                      priority={index === 0}
-                    />
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold text-gray-900">
-                    {leader.name1}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    {leader.designation1}
-                  </p>
-                </div>
-
-                {/* Managing Director */}
-                <div className="flex flex-col items-center text-center">
-                  <div className="rounded-2xl overflow-hidden w-full h-full">
-                    <Image
-                      src={leader.directorimage}
-                      alt={leader.name2}
-                      width={300}
-                      height={300}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold text-gray-900">
-                    {leader.name2}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    {leader.designation2}
-                  </p>
-                </div>
-
-              </div>
+            {/* Image */}
+            <div className="w-50 h-60 rounded-2xl overflow-hidden mb-6">
+              <Image
+                src={leader.image}
+                alt={leader.name}
+                width={260}
+                height={260}
+                className="w-full h-full object-cover"
+                priority={index === 0}
+              />
             </div>
 
-            {/* Right: Founder Note Content */}
-            <div className="w-full lg:w-3/5">
-              {leader.paragraphs?.length > 0 && (
-                <div className="space-y-4 text-gray-700 leading-relaxed text-base">
-                  {leader.paragraphs.map((text, i) => (
-                    <p key={i}>{text}</p>
-                  ))}
-                </div>
-              )}
+            {/* Name */}
+            <h3 className="text-lg font-semibold text-gray-900">
+              {leader.name}
+            </h3>
+
+            {/* Designation */}
+            <p className="text-sm text-gray-600 mb-6">
+              {leader.designation}
+            </p>
+
+            {/* Content */}
+            <div className="space-y-4 text-gray-700 leading-relaxed">
+              {leader.content.map((text, i) => (
+                <p key={i}>{text}</p>
+              ))}
             </div>
           </div>
         ))}
       </div>
+
+      {/* Footer Note from JSON */}
+      {founderData.footerNote && (
+        <p className="text-center text-gray-700 mt-8">
+          {founderData.footerNote}
+        </p>
+      )}
     </section>
   );
 }
