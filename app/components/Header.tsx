@@ -179,7 +179,7 @@ const Header = () => {
 
           <a
             href="tel:+919898552074"
-            className="flex items-center gap-2 border border-black text-gray-600 hover:text-white hover:bg-[#AA2022] font-medium px-4 py-3 rounded-md transition"
+            className="flex items-center gap-2 border border-black text-black hover:text-white hover:bg-[#AA2022] font-medium px-4 py-3 rounded-md transition"
             onClick={() => setIsOpen(false)}
           >
             <FaPhoneAlt className="text-lg" />

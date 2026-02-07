@@ -138,7 +138,7 @@ export default function ContactSection() {
   return (
     <section className="w-full bg-[#FFFFFF] lg:py-20 py-6 px-6 lg:px-20 relative">
       {showPopup && (
-        <div className="fixed top-10 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-md shadow-lg z-50">
+        <div className="fixed top-14 md:top-20 left-1/2 -translate-x-1/2 bg-green-600 text-white px-6 py-2 shadow-lg z-50 text-center w-full">
           Your form has been submitted successfully!
         </div>
       )}
