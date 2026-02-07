@@ -87,7 +87,7 @@ export default function TestimonialsSection() {
           {/* LEFT */}
           <button
             onClick={prev}
-            className="absolute -left-6 md:-left-8 z-10 p-2 rounded-full bg-gray-100 shadow hover:scale-110 transition"
+            className="absolute -left-6 md:-left-8 text-black z-10 p-2 rounded-full bg-gray-100 shadow hover:scale-110 transition"
           >
             <ChevronLeft size={32} />
           </button>
@@ -120,7 +120,7 @@ export default function TestimonialsSection() {
                       />
                     </div>
                     <div>
-                      <p className="font-semibold">{t.name}</p>
+                      <p className="font-semibold text-black">{t.name}</p>
                       <p className="text-sm text-gray-500">{t.location}</p>
                     </div>
                   </div>
@@ -132,7 +132,7 @@ export default function TestimonialsSection() {
           {/* RIGHT */}
           <button
             onClick={next}
-            className="absolute -right-6 md:-right-8 z-10 p-2 rounded-full bg-gray-100 shadow hover:scale-110 transition"
+            className="absolute -right-6 md:-right-8 text-black z-10 p-2 rounded-full bg-gray-100 shadow hover:scale-110 transition"
           >
             <ChevronRight size={32} />
           </button>

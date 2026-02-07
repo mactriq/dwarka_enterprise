@@ -67,11 +67,8 @@ const Footer = () => {
                 {/* Phone numbers */}
                 <li className="flex items-center gap-2">
                   <FaPhoneAlt className="text-white/80"/>
-                  <Link href="tel:+919376639399" className="hover:text-gray-300">
-                    +91 9376639399,
-                  </Link>
-                  <Link href="tel:+916351292442" className="hover:text-gray-300">
-                    +91 6351292442
+                  <Link href="tel:+919898552074" className="hover:text-gray-300">
+                    +91 9898552074
                   </Link>
                 </li>
 
@@ -91,7 +88,7 @@ const Footer = () => {
                   <Link href="https://facebook.com" target="_blank">
                     <SiFacebook className="w-5 h-5 hover:text-gray-300" />
                   </Link>
-                  <Link href="https://instagram.com" target="_blank">
+                  <Link href="https://www.instagram.com/dwarka.enterprise?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
                     <SiInstagram className="w-5 h-5 hover:text-gray-300" />
                   </Link>
                   <Link href="https://youtube.com" target="_blank">

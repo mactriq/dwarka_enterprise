@@ -4,6 +4,7 @@ import contactData from "../data/contactData.json";
 import Link from "next/link";
 
 export default function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { section } = contactData;
   const [activeTab, setActiveTab] = useState("sales");
   const [showPopup, setShowPopup] = useState(false);
@@ -26,14 +27,27 @@ export default function ContactSection() {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setSalesForm({ ...salesForm, [e.target.name]: e.target.value });
 
+  // const handleCareerChange = (
+  //   e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => setCareerForm({ ...careerForm, [e.target.name]: e.target.value });
+
   const handleCareerChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setCareerForm({ ...careerForm, [e.target.name]: e.target.value });
+  e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+) => {
+  const { name, value } = e.target;
+
+  setCareerForm((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
+
 
   const showSuccess = () => {
     setShowPopup(true);
     setTimeout(() => setShowPopup(false), 3000);
   };
+
 
   const saveSalesToSheet = async (data: any) => {
     try {
@@ -77,29 +91,49 @@ export default function ContactSection() {
   };
 
   const handleSalesSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    const success = await saveSalesToSheet({
-      formType: "Sales Inquiry",
-      ...salesForm,
-    });
-    if (success) {
-      setSalesForm({ name: "", email: "", phone: "", message: "" });
-    }
-  };
+  e.preventDefault();
+  if (isSubmitting) return;
+
+  setIsSubmitting(true); // 🔒 lock button
+
+  const success = await saveSalesToSheet({
+    formType: "Sales Inquiry",
+    ...salesForm,
+  });
+
+  if (success) {
+    setSalesForm({ name: "", email: "", phone: "", message: "" });
+    showSuccess(); // ✅ SUCCESS AFTER API
+  }
+
+  setIsSubmitting(false); // 🔓 unlock button
+};
+
+
 
   const handleCareerSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    const success = await saveCareerToSheet();
+  e.preventDefault();
+  if (isSubmitting) return;
 
-    if (success) {
-      setCareerForm({
-        name: "",
-        email: "",
-        phone: "",
-        address: "",
-      });
-    }
-  };
+  setIsSubmitting(true); // 🔒 lock button
+
+  const success = await saveCareerToSheet();
+
+  if (success) {
+    setCareerForm({
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+    });
+    showSuccess(); // ✅ SUCCESS AFTER API
+  }
+
+  setIsSubmitting(false); // 🔓 unlock button
+};
+
+
+
 
   return (
     <section className="w-full bg-[#FFFFFF] lg:py-20 py-6 px-6 lg:px-20 relative">
@@ -108,7 +142,6 @@ export default function ContactSection() {
           Your form has been submitted successfully!
         </div>
       )}
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16">
         <div>
           <h3 className="lg:text-6xl text-4xl font-semibold text-gray-900 mb-6">
@@ -177,9 +210,17 @@ export default function ContactSection() {
                 <label>Phone</label>
                 <input
                   name="phone"
+                  type="tel"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  maxLength={10}
                   value={salesForm.phone}
-                  onChange={handleSalesChange}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, "");
+                    setSalesForm({ ...salesForm, phone: value });
+                  }}
                   className="border-b w-full p-1"
+                  required
                 />
 
                 <label>Message</label>
@@ -189,11 +230,23 @@ export default function ContactSection() {
                   onChange={handleSalesChange}
                   className="border-b w-full p-1"
                   rows={4}
+                  required
                 />
 
-                <button className="cursor-pointer w-full bg-gray-900 hover:bg-white hover:text-black border text-white py-2 rounded-md">
+                {/* <button className="cursor-pointer w-full bg-gray-900 hover:bg-white hover:text-black border text-white py-2 rounded-md">
                   Submit
+                </button> */}
+                <button
+                  disabled={isSubmitting}
+                  className={`w-full py-2 rounded-md border transition
+                    ${isSubmitting
+                      ? "bg-gray-400 text-white cursor-not-allowed"
+                      : "bg-gray-900 text-white hover:bg-white hover:text-black"}
+                  `}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </button>
+
               </form>
             )}
 
@@ -221,9 +274,17 @@ export default function ContactSection() {
                 <label>Phone</label>
                 <input
                   name="phone"
+                  type="tel"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  maxLength={10}
                   value={careerForm.phone}
-                  onChange={handleCareerChange}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, "");
+                    setCareerForm({ ...careerForm, phone: value });
+                  }}
                   className="border-b w-full p-1"
+                  required
                 />
 
                 <label>Address</label>
@@ -233,6 +294,7 @@ export default function ContactSection() {
                   onChange={handleCareerChange}
                   rows={1}
                   className="border-b w-full p-1"
+                  required
                 />
 
                 <label>Send Your CV To: </label>
@@ -244,9 +306,20 @@ export default function ContactSection() {
                   info.dwarkaenterprise@gmail.com
                 </Link>
 
-                <button className="mt-6 cursor-pointer w-full bg-gray-900 hover:bg-white hover:text-black border text-white py-2 rounded-md">
+                {/* <button className="mt-6 cursor-pointer w-full bg-gray-900 hover:bg-white hover:text-black border text-white py-2 rounded-md">
                   Submit
+                </button> */}
+                <button
+                  disabled={isSubmitting}
+                  className={`mt-6 w-full py-2 rounded-md border transition
+                    ${isSubmitting
+                      ? "bg-gray-400 text-white cursor-not-allowed"
+                      : "bg-gray-900 text-white hover:bg-white hover:text-black"}
+                  `}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </button>
+
               </form>
             )}
           </div>

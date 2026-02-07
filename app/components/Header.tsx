@@ -85,11 +85,11 @@ const Header = () => {
           </Link>
 
           <a
-            href="tel:+919376639399"
+            href="tel:+919898552074"
             className="flex items-center gap-2 cursor-pointer text-white border border-white font-medium px-4 py-3 rounded-md hover:border-[#AA2022] hover:bg-[#AA2022] transition"
           >
             <FaPhoneAlt className="text-lg" />
-            <span>+91 9376639399</span>
+            <span>+91 9898552074</span>
           </a>
         </div>
 
@@ -178,12 +178,12 @@ const Header = () => {
           </Link>
 
           <a
-            href="tel:+919376639399"
+            href="tel:+919898552074"
             className="flex items-center gap-2 border border-black text-gray-600 hover:text-white hover:bg-[#AA2022] font-medium px-4 py-3 rounded-md transition"
             onClick={() => setIsOpen(false)}
           >
             <FaPhoneAlt className="text-lg" />
-            <span>+91 9376639399</span>
+            <span>+91 9898552074</span>
           </a>
         </div>
       )}
