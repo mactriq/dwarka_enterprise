@@ -32,7 +32,7 @@ const OurProducts = () => {
         <h2 className="text-4xl lg:text-5xl font-bold text-[#0C1622]">
           Our products
         </h2>
-        <p className="text-start md:text-right max-w-xl">
+        <p className="text-start text-black md:text-right max-w-xl">
           Discover top-quality HVAC products for ultimate comfort and efficiency.
         </p>
       </div>
