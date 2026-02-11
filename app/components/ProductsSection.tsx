@@ -124,11 +124,11 @@ const ProductsSection = () => {
 
               {/* LEFT SECTION */}
               <div className="flex flex-col h-full space-y-2">
-                <span className="px-4 py-2 bg-white border rounded-full text-sm w-fit">
+                <span className="px-4 py-2 bg-white border text-[#171717] rounded-full text-sm w-fit">
                   {activeProduct.category}
                 </span>
 
-                <h2 className="text-3xl font-bold leading-snug">
+                <h2 className="text-3xl font-bold text-[#171717] leading-snug">
                   {activeProduct.name}
                 </h2>
 

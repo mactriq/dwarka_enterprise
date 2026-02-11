@@ -56,24 +56,27 @@ const OurProducts = () => {
             className="relative min-w-[220px] lg:min-w-[300px] bg-white rounded-3xl overflow-hidden transition-all duration-300 snap-start"
           >
             {/* Product Image */}
-            <div className="relative lg:h-[380px] h-[350px] w-[300px]">
+            <div className="relative lg:h-[380px] h-[350px] w-[300px] bg-white">
               <Image
                 src={product.homeImage || product.image}
                 alt={product.name}
                 fill
-                className="object-cover bg-[#F7F6F2]"
+                className="object-contain bg-gradient-to-t from-[#16222E] to-[#ffffff]"
               />
             </div>
 
             {/* Text + Icon */}
             <div className="absolute bottom-2 left-3 right-3 flex justify-between items-center">
-              <h3 className="bg-white text-[#000000] p-2 rounded-2xl font-semibold text-md leading-snug max-w-[70%]">
+              {/* <h3 className="bg-white text-[#000000] p-2 rounded-2xl font-semibold text-md leading-snug max-w-[80%]">
+                {product.name}
+              </h3> */}
+              <h3 className="text-[#FFFFFF] p-2 rounded-2xl font-semibold text-md leading-snug max-w-[80%]">
                 {product.name}
               </h3>
 
               <Link
                 href="/product"
-                className="border hover:bg-white hover:text-[#16222E] bg-[#16222E] text-white p-4 rounded-full transition"
+                className="border hover:bg-[#16222E] hover:text-white bg-white text-[#16222E] p-4 rounded-full transition"
               >
                 <FaArrowRight />
               </Link>
