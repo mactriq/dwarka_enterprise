@@ -6,8 +6,8 @@
       "category": "Split AC",
       "brand": "LG",
       "name": "Split Air Conditioner",
-      "image": "/products/display-product/Split-AC.png",
-      "homeImage": "/products/Split-AC.png",
+      "image": "/products/display-product/split_ac.png",
+      "homeImage": "/products/split_ac.png",
       "description": "A split air conditioner is an efficient cooling system that consists of two separate units: an indoor unit and an outdoor unit. It is a popular alternative to window ACs because it offers quiet operation and more flexible installation options.",
       "features": [
         "Quiet operation",
@@ -20,10 +20,10 @@
     },
     {
       "category": "Cassette AC",
-      "brand": "Voltas",
+      "brand": "LG",
       "name": "1 way Cassette Air Conditioner",
-      "image": "/products/display-product/1way-AC.png",
-      "homeImage": "/products/1way-AC.png",
+      "image": "/products/display-product/1way_ac.png",
+      "homeImage": "/products/1way_ac.png",
       "description": "Bringing you an ideal cooling solution, the 1 Way Cassette is a great choice for different businesses. With quality technology and premium designs, discover how this air conditioner will keep your office comfortable.",
       "features": [
         "Slim & Compact Indoor Unit",
@@ -36,8 +36,8 @@
       "category": "Cassette AC",
       "brand": "LG",
       "name": "4 way Cassette Air Conditioner",
-      "image": "/products/display-product/4way-AC.png",
-      "homeImage": "/products/4way-AC.png",
+      "image": "/products/display-product/4way_ac.png",
+      "homeImage": "/products/4way_ac.png",
       "description": "The ceiling-mounted cassette provides a comfortable and aesthetically pleasing environment, making it an ideal asset for your business. The cassette-type indoor unit also purifies the air, ensuring a fresher and healthier atmosphere.",
       "features": [
         "Stylish Design Panel",
@@ -52,8 +52,8 @@
       "category": "Duct AC",
       "brand": "Voltas",
       "name": "Duct Air Conditioner",
-      "image": "/products/display-product/duct-AC.png",
-      "homeImage": "/products/duct-AC.png",
+      "image": "/products/display-product/duct_ac.png",
+      "homeImage": "/products/duct_ac.png",
       "description": "The ceiling concealed duct is a discreet cooling and heating solution that provides optimal temperature control without affecting interior aesthetics.",
       "features": [
         "Easy Service & Maintenance",
@@ -68,10 +68,10 @@
     },
     {
       "category": "HVAC",
-      "brand": "General",
+      "brand": "LG",
       "name": "VRF / VRV System",
-      "image": "/products/display-product/VRF-system.png",
-      "homeImage": "/products/VRF-system.png",
+      "image": "/products/display-product/vrf_system.png",
+      "homeImage": "/products/vrf_system.png",
       "description": "Latest Trend In HVAC Technology. Variable Refrigerant Flow (VRF) is a latest trend in HVAC technology invented in Japan which helps in reducing electricity consumption by regualting refrigerant flow of liquid. Hence, the machine performs efficiently according to human occupancy, oreintation, direction of sun, heat generating equipment with a lesser pay back period.",
       "features": [
         "Energy efficiency",
@@ -85,10 +85,10 @@
     },
     {
       "category": "HVAC",
-      "brand": "Toshiba",
+      "brand": "LG",
       "name": "Multi I home solution",
-      "image": "/products/display-product/multi-I.png",
-      "homeImage": "/products/multi-I.png",
+      "image": "/products/display-product/multi_i.png",
+      "homeImage": "/products/multi_i.png",
       "description": "A versatile and efficient multi-zone HVAC system designed to power several indoor units from one outdoor unit, providing personalized comfort for every room. With quiet operation, advanced inverter technology, and a compact footprint, it offers an ideal solution for modern homes seeking reliable, energy-saving climate control.",
       "features": [
         "Multi-Zone Temperature Control",
@@ -103,8 +103,8 @@
       "category": "HVAC",
       "brand": "O.G. Heavy Duty",
       "name": "Precision Air Conditioner",
-      "image": "/products/display-product/precision-AC.png",
-      "homeImage": "/products/precision-AC.png",
+      "image": "/products/display-product/precision_ac.png",
+      "homeImage": "/products/precision_ac.png",
       "description": "Keep Data & server Centre cool & process fast Precision Air Conditioning System is mostly known as PACs that cools Data centres, Server rooms, IT equipment.",
       "features": [
         "Precise humidity control",
@@ -118,8 +118,8 @@
       "category": "HVAC",
       "brand": "Carrier",
       "name": "Chiller Base HVAC System",
-      "image": "/products/display-product/Chiller.png",
-      "homeImage": "/products/Chiller.png",
+      "image": "/products/display-product/water_chiller.png",
+      "homeImage": "/products/water_chiller.png",
       "description": "One Company, Tons of Capacity. With a wide range of types, capacities and sustainable refrigerant options, we are leader in chiller options. With non-ozone depleting refrigerant, simple installation superior efficiency & powerful controls, these units are ideal for both replacement & new construction projects. Innovative chiller solutions are designed to bring efficient, reliable cooling to all types of large commercial applications.",
       "features": [
         "Longer Life Span",
