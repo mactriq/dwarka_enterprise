@@ -22,7 +22,7 @@ export default function AboutCompany() {
         </div>
 
         {/* RIGHT SIDE: Bento Grid */}
-        <div className="relative grid gap-4">
+        <div className="relative grid lg:gap-4 gap-0">
 
           {/* Top Section */}
           <div className="w-full flex gap-4">
@@ -49,12 +49,12 @@ export default function AboutCompany() {
                 />
               </div>
 
-              <div className="relative w-full lg:h-32 h-12 rounded-xl overflow-hidden">
+              <div className="relative w-full lg:h-32 h-20 rounded-xl bg-white">
                 <Image
                   src={images.topRightBottom}
                   alt="HVAC Solutions"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>

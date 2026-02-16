@@ -153,7 +153,7 @@ export default function ContactSection() {
           <img
             src={section.leftImage.src}
             alt={section.leftImage.alt}
-            className="rounded-2xl w-full object-cover"
+            className="rounded-2xl w-full h-auto object-contain"
           />
         </div>
 

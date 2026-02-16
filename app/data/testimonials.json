@@ -3,10 +3,10 @@
   "subheading": "What Our Customer Say About Us",
   "items": [
     {
-      "quote": "Excellent HVAC service that keeps the air quality good and the system working reliably in our healthcare facility.",
-      "name": "AMC Hospital",
-      "location": "Surat",
-      "image": "/projects/hospitals/hospital1.jpg"
+      "quote": "Reliable HVAC service with excellent air quality and efficient system performance for our hospital.",
+      "name": "Shah Hospital",
+      "location": "Karnal, Haryana",
+      "image": "/projects/hospitals/hospital3.png"
     },
     {
       "quote": "The HVAC solution ensures the indoor areas of the stadium stay cool and well-ventilated.",
@@ -31,6 +31,12 @@
       "name": "Paradise Hotel",
       "location": "Ankleshwar",
       "image": "/projects/other/other8.png"
+    },
+    {
+      "quote": "Excellent HVAC service that keeps the air quality good and the system working reliably in our healthcare facility.",
+      "name": "AMC Hospital",
+      "location": "Surat",
+      "image": "/projects/hospitals/hospital1.jpg"
     },
     {
       "quote": "Professional HVAC maintenance team ensuring consistent performance and reliability.",
