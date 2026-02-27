@@ -18,7 +18,7 @@ const ProductsSection = () => {
   const [activeProduct, setActiveProduct] = useState<any>(null);
 
   const filteredProducts = products.filter((product) => {
-    const matchesBrand = selectedBrand === "All" || product.brand === selectedBrand;
+    const matchesBrand = selectedBrand === "All" || product.brand.some((b) => b.name === selectedBrand);
     const matchesCategory =
       selectedCategory === "All" || product.category === selectedCategory;
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -132,9 +132,16 @@ const ProductsSection = () => {
                   {activeProduct.name}
                 </h2>
 
-                <p className="text-gray-700 leading-relaxed mt-auto">
+                <p className="text-gray-700 leading-relaxed">
                   {activeProduct.description}
                 </p>
+
+                 {/* Features */}
+                <ul className="list-disc pl-5 lg:space-y-2 text-gray-800">
+                  {activeProduct.features.map((f: string, i: number) => (
+                    <li key={i}>{f}</li>
+                  ))}
+                </ul>
               </div>
 
               {/* MIDDLE IMAGE */}
@@ -151,27 +158,38 @@ const ProductsSection = () => {
               {/* RIGHT SECTION */}
               <div className="flex flex-col h-full">
 
-                {/* Features */}
-                <ul className="list-disc pl-5 lg:space-y-2 text-gray-800">
-                  {activeProduct.features.map((f: string, i: number) => (
-                    <li key={i}>{f}</li>
-                  ))}
-                </ul>
+                {/* Brands We Deal In */}
+                <div className="mt-0">
+                  <h4 className="text-lg font-semibold mb-3">Brands We Deal In</h4>
+                  <div className="space-y-2">
+                    {/* Loop through product brands */}
+                    {activeProduct.brand?.map((b: any, i: number) => (
+                      <div
+                        key={i}
+                        className="flex items-center justify-between bg-gray-100 px-4 py-2 rounded-lg"
+                      >
+                        <span className="font-medium text-gray-800">
+                          {b.name}
+                        </span>
+
+                        <a
+                          href={b.broucher}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-green-600 hover:bg-green-700 text-white text-sm px-3 py-1 rounded-md"
+                        >
+                          View Catalogue
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
                 {/* Buttons */}
                 <div className="flex flex-col space-y-2 mt-auto pt-6">
-                  <a
-                    href={activeProduct.broucher}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border hover:bg-white hover:text-[#16222E] bg-[#16222E] text-white px-6 py-3 rounded-full flex items-center justify-between"
-                  >
-                    View Catalogue <FaArrowRight />
-                  </a>
-
                   <Link
                     href="/contact"
-                    className="border hover:bg-white hover:text-[#16222E] bg-[#16222E] text-white px-6 py-3 rounded-full flex items-center justify-between"
+                    className="border hover:bg-white hover:text-[#16222E] bg-[#16222E] text-white px-6 py-3 rounded-lg flex items-center justify-between"
                   >
                     Get in Touch <FaArrowRight />
                   </Link>

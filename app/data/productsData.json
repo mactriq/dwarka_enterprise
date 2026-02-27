@@ -1,10 +1,9 @@
 {
-  "brands": ["LG", "Voltas", "General", "O.G. Heavy Duty", "Carrier", "Toshiba"],
+  "brands": ["LG", "Voltas", "General", "O.G. Heavy Duty", "Carrier", "Toshiba", "Daikin", "Cruise"],
   "categories": ["Split AC", "Cassette AC", "Duct AC", "HVAC"],
   "products": [
     {
       "category": "Split AC",
-      "brand": "LG",
       "name": "Split Air Conditioner",
       "image": "/products/display-product/split_ac.png",
       "homeImage": "/products/split_ac.png",
@@ -16,11 +15,13 @@
         "Installation flexibility",
         "Improved air quality"
       ],
-      "broucher": "/products/broucher/RAC 2025 Digital catalogue.pdf"
+      "brand": [
+        { "name": "LG", "broucher": "/products/broucher/RAC 2025 Digital catalogue.pdf" },
+        { "name": "Toshiba", "broucher": "/products/broucher/Catalogue_Hi Wall Inverter Retail.pdf" }
+      ]
     },
     {
       "category": "Cassette AC",
-      "brand": "LG",
       "name": "1 way Cassette Air Conditioner",
       "image": "/products/display-product/1way_ac.png",
       "homeImage": "/products/1way_ac.png",
@@ -30,11 +31,12 @@
         "4 Way Air Blow Auto Control",
         "Comfort Cooling (Direct / Indirect Wind)"
       ],
-      "broucher": "/products/broucher/2025 CST Leaflet.pdf"
+      "brand": [
+        { "name": "LG", "broucher": "/products/broucher/2025 CST Leaflet.pdf" }
+      ]
     },
     {
       "category": "Cassette AC",
-      "brand": "LG",
       "name": "4 way Cassette Air Conditioner",
       "image": "/products/display-product/4way_ac.png",
       "homeImage": "/products/4way_ac.png",
@@ -46,11 +48,13 @@
         "High Ceiling Mode",
         "Independent Control of Air Flow"
       ],
-      "broucher": "/products/broucher/2025 Light Commercial Catalogue.pdf"
+      "brand": [
+        { "name": "LG", "broucher": "/products/broucher/2025 Light Commercial Catalogue.pdf" },
+        { "name": "Carrier", "broucher": "/products/broucher/Carrier FS R32 Cassette.pdf" }
+      ]
     },
     {
       "category": "Duct AC",
-      "brand": "Voltas",
       "name": "Duct Air Conditioner",
       "image": "/products/display-product/duct_ac.png",
       "homeImage": "/products/duct_ac.png",
@@ -64,11 +68,12 @@
         "High Energy Efficiency",
         "Long Distance Piping"
       ],
-      "broucher": "/products/broucher/Inverter Duct Leaflet 2024.pdf"
+      "brand": [
+        { "name": "LG", "broucher": "/products/broucher/Inverter Duct Leaflet 2024.pdf" }
+      ]
     },
     {
       "category": "HVAC",
-      "brand": "LG",
       "name": "VRF / VRV System",
       "image": "/products/display-product/vrf_system.png",
       "homeImage": "/products/vrf_system.png",
@@ -81,11 +86,12 @@
         "Requires Less Space",
         "Morden Controls"
       ],
-      "broucher": "/products/broucher/2025 Multi V 5 Small Catalogue.pdf"
+      "brand": [
+        { "name": "LG", "broucher": "/products/broucher/2025 Multi V 5 Small Catalogue.pdf" }
+      ]
     },
     {
       "category": "HVAC",
-      "brand": "LG",
       "name": "Multi I home solution",
       "image": "/products/display-product/multi_i.png",
       "homeImage": "/products/multi_i.png",
@@ -97,11 +103,13 @@
         "Compact, Space-Saving Design",
         "Eco-Friendly Refrigerant Options"
       ],
-      "broucher": "/products/broucher/SAC_Multi Home_2025_Catalogue.pdf"
+      "brand": [
+        { "name": "LG", "broucher": "/products/broucher/SAC_Multi Home_2025_Catalogue.pdf" },
+        { "name": "Carrier", "broucher": "/products/broucher/Carrier Inverter Package AC.pdf" }
+      ]
     },
     {
       "category": "HVAC",
-      "brand": "O.G. Heavy Duty",
       "name": "Precision Air Conditioner",
       "image": "/products/display-product/precision_ac.png",
       "homeImage": "/products/precision_ac.png",
@@ -112,11 +120,12 @@
         "Better faster Morden control",
         "Remotely accessible"
       ],
-      "broucher": "/products/broucher/Carrier Inverter Package AC.pdf"
+      "brand": [
+
+      ]
     },
     {
       "category": "HVAC",
-      "brand": "Carrier",
       "name": "Chiller Base HVAC System",
       "image": "/products/display-product/water_chiller.png",
       "homeImage": "/products/water_chiller.png",
@@ -128,7 +137,9 @@
         "Cost Effective",
         "Eco-Friendly"
       ],
-      "broucher": "/products/broucher/Hydrokit.pdf"
+      "brand": [
+
+      ]
     }
   ]
 }
