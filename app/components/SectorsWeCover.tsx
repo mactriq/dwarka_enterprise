@@ -39,14 +39,14 @@ const SectorsWeCover = () => {
             {[...sectors, ...sectors].map((sector: Sector, index: number) => (
               <div
                 key={index}
-                className="flex-shrink-0 flex flex-col items-center w-[120px]"
+                className="flex-shrink-0 flex flex-col items-center w-[100px]"
               >
                 <div className="lg:w-24 lg:h-24 w-18 h-18 rounded-full flex items-center justify-center mb-4 overflow-hidden">
                   <Image
                     src={sector.image}
                     alt={sector.title}
-                    width={88}
-                    height={88}
+                    width={80}
+                    height={80}
                     className="object-contain"
                   />
                 </div>

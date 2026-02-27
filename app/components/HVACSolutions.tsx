@@ -52,15 +52,15 @@ const HVACSolutions = () => {
 
         {/* Mobile Marquee */}
         <div className="border-t border-b border-[#16222E] py-4 overflow-hidden sm:hidden">
-          <div className="flex whitespace-nowrap animate-marquee">
+          <div className="flex whitespace-nowrap animate-marquee gap-5">
             {[...brands, ...brands].map((brand, index) => (
-              <div key={index} className="flex items-center justify-center min-w-[140px] mx-4">
+              <div key={index} className="flex items-center justify-center min-w-[60px]">
                 <Image
                   src={brand.src}
                   alt={brand.alt}
-                  width={120}
+                  width={100}
                   height={60}
-                  className="object-contain h-12"
+                  className="object-contain h-10"
                 />
               </div>
             ))}
@@ -71,13 +71,13 @@ const HVACSolutions = () => {
         <div className="border-t border-b border-[#16222E] py-4 hidden sm:flex flex-wrap justify-between gap-6 items-center w-full">
           {brands.map((brand, index) => (
             <React.Fragment key={index}>
-              <div className="flex-1 flex items-center justify-center min-w-[120px]">
+              <div className="flex-1 flex items-center justify-center min-w-[100px]">
                 <Image
                   src={brand.src}
                   alt={brand.alt}
                   width={120}
                   height={60}
-                  className="object-contain h-12"
+                  className="object-contain h-10"
                 />
               </div>
 
