@@ -17,7 +17,7 @@
       ],
       "brand": [
         { "name": "LG", "broucher": "/products/broucher/RAC 2025 Digital catalogue.pdf" },
-        { "name": "Toshiba", "broucher": "/products/broucher/Catalogue_Hi Wall Inverter Retail.pdf" }
+        { "name": "Toshiba", "broucher": "/products/broucher/Catalogue_Hi Wall Inverter.pdf" }
       ]
     },
     {
@@ -121,7 +121,7 @@
         "Remotely accessible"
       ],
       "brand": [
-        
+
       ]
     },
     {
