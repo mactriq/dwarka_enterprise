@@ -26,6 +26,11 @@ const ProductsSection = () => {
     return matchesBrand && matchesCategory && matchesSearch;
   });
 
+  type Brand = {
+  name: string;
+  broucher: string;
+};
+
   return (
     <section className="px-6 bg-[#FFFFFF] lg:px-20 lg:py-20 py-6">
       {/* ---------------- FILTERS ---------------- */}
@@ -159,31 +164,37 @@ const ProductsSection = () => {
               <div className="flex flex-col h-full">
 
                 {/* Brands We Deal In */}
-                <div className="mt-0">
-                  <h4 className="text-lg font-semibold mb-3">Brands We Deal In</h4>
-                  <div className="space-y-2">
-                    {/* Loop through product brands */}
-                    {activeProduct.brand?.map((b: any, i: number) => (
-                      <div
-                        key={i}
-                        className="flex items-center justify-between bg-gray-100 px-4 py-2 rounded-lg"
-                      >
-                        <span className="font-medium text-gray-800">
-                          {b.name}
-                        </span>
+                {activeProduct.brand &&
+                 activeProduct.brand.some((b: Brand) => b.broucher) && (
 
-                        <a
-                          href={b.broucher}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="bg-green-600 hover:bg-green-700 text-white text-sm px-3 py-1 rounded-md"
-                        >
-                          View Catalogue
-                        </a>
-                      </div>
-                    ))}
+                  <div className="mt-0">
+                    <h4 className="text-lg font-semibold mb-3">Brands We Deal In</h4>
+                    <div className="space-y-2">
+                      {activeProduct.brand
+                        .filter((b: Brand) => b.broucher)
+                        .map((b: Brand, i: number) => (
+                          <div
+                            key={i}
+                            className="flex items-center justify-between bg-gray-100 px-4 py-2 rounded-lg"
+                          >
+                            <span className="font-medium text-gray-800">
+                              {b.name}
+                            </span>
+
+                            <a
+                              href={b.broucher}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="bg-green-600 hover:bg-green-700 text-white text-sm px-3 py-1 rounded-md"
+                            >
+                              View Catalogue
+                            </a>
+                          </div>
+                        ))}
+                    </div>
                   </div>
-                </div>
+
+                )}
 
                 {/* Buttons */}
                 <div className="flex flex-col space-y-2 mt-auto pt-6">

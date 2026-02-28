@@ -16,7 +16,7 @@
         "Improved air quality"
       ],
       "brand": [
-        { "name": "LG", "broucher": "/products/broucher/RAC 2025 Digital catalogue.pdf" },
+        { "name": "LG", "broucher": "/products/broucher/LG RAC Catalogue 2026 Digital Version.pdf" },
         { "name": "Toshiba", "broucher": "/products/broucher/Catalogue_Hi Wall Inverter.pdf" }
       ]
     },
@@ -32,7 +32,8 @@
         "Comfort Cooling (Direct / Indirect Wind)"
       ],
       "brand": [
-        { "name": "LG", "broucher": "/products/broucher/2025 CST Leaflet.pdf" }
+        { "name": "LG", "broucher": "/products/broucher/2025 CST Leaflet.pdf" },
+        { "name": "Carrier", "broucher": "/products/broucher/Product Catalogue_1 Way Cassette.pdf" }
       ]
     },
     {
@@ -50,7 +51,9 @@
       ],
       "brand": [
         { "name": "LG", "broucher": "/products/broucher/2025 Light Commercial Catalogue.pdf" },
-        { "name": "Carrier", "broucher": "/products/broucher/Carrier FS R32 Cassette.pdf" }
+        { "name": "Carrier", "broucher": "/products/broucher/Carrier Inverter Cassette_Catalogue.pdf" },
+        { "name": "Cruise", "broucher": "/products/broucher/Cruise 2024_Cassette AC Brochure.pdf" },
+        { "name": "Toshiba", "broucher": "/products/broucher/New Toshiba Inverter Cassette.pdf" }
       ]
     },
     {
@@ -69,7 +72,9 @@
         "Long Distance Piping"
       ],
       "brand": [
-        { "name": "LG", "broucher": "/products/broucher/Inverter Duct Leaflet 2024.pdf" }
+        { "name": "LG", "broucher": "/products/broucher/FIXED SPEED DUCT (HIGH)_Sept 2025.pdf" },
+        { "name": "Toshiba", "broucher": "/products/broucher/Catalogue_SPI Classic_Ducted.pdf" },
+        { "name": "Carrier", "broucher": "/products/broucher/Carrier Ducted R410a.pdf" }
       ]
     },
     {
