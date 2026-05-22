@@ -19,9 +19,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Dwarka Enterprise",
   description: "Smart. Sustainable. Reliable.",
-  icons: {
-    icon: "/favicon.png",
-  },
 };
 
 export default function RootLayout({
