@@ -4,7 +4,7 @@ import homeHeroVideo from "../data/homeHeroVideo.json";
 
 const VideoSection = () => {
   return (
-    <section className="relative w-full h-[220px] lg:h-[785px] overflow-hidden bg-black">
+    <section className="relative w-full h-[220px] lg:h-[785px] overflow-hidden bg-white">
 
       <video
         className="absolute inset-0 w-full h-full object-cover"
@@ -13,6 +13,8 @@ const VideoSection = () => {
         loop
         muted
         playsInline
+        preload="auto"
+        poster="/about/video-thumbnail.png"
       />
 
     </section>
