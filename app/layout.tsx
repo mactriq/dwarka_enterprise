@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Dwarka Enterprise",
   description: "Smart. Sustainable. Reliable.",
+  openGraph: {
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({
@@ -32,6 +35,20 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Dwarka Enterprise",
+              url: "https://www.dwarkaenterprise.com/",
+              logo: "https://www.dwarkaenterprise.com/logo.png",
+            }),
+          }}
+        />
+
         {/* Floating Company Brochure Button */}
         <a
           href="/about/Dwarka Enterprise Brochure.pdf"
